@@ -17,6 +17,7 @@
     NSString * path = [[NSBundle mainBundle]pathForResource:@"computerScience" ofType:@"txt"];
     NSString * text = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     NSMutableArray * text2 = [text componentsSeparatedByString:@"\n"];
+    
     return text2;
     
 }
@@ -25,21 +26,39 @@
 {
    return @"";
 }
-+(void)MakeDictionary {
++(NSDictionary *)MakeDictionary {
+    NSMutableDictionary * mapForSearch = [[NSMutableDictionary alloc]init];
     NSMutableString * classes = [NSMutableString string];
-    NSArray * class = [self create];
-    for (int i = 0; i < class.count; i++) {
-        NSString * clas = class[i];
-        if (clas != @"") {
-            NSArray * splitter = [clas componentsSeparatedByString:@" "];
-            NSLog(@"the first is %@",splitter[i]);
+    NSSet * set = [NSSet setWithArray:[self create]];
+    
+    for(NSString * string in set) {
+        NSString * realString = string;
+        if(![realString isEqualToString:@""])
+        {
+            NSMutableString * stringToAppendClassDetails = [[NSMutableString alloc]init];
+            NSArray * classNumbers = [realString componentsSeparatedByString:@" " ];
+            NSMutableString * classNumberCulminated = [[NSMutableString alloc]init];
+            [classNumberCulminated appendString:classNumbers[0]];
+             [classNumberCulminated appendString:classNumbers[1]];
+            
+            
+            for( int i = 5;  i < classNumbers.count ; i++) //NEED TO FIX THIS WHY CRASH?
+            {
+                if(![classNumbers[i] isEqualToString:@"REC"]) {
+                    if(![classNumbers[i] isEqualToString:@"LEC"]) {
+                    [stringToAppendClassDetails appendFormat:@" %@",classNumbers[i]];
+                    }
+                
+                }
+               
+            }
+            [mapForSearch setObject:stringToAppendClassDetails forKey:classNumberCulminated];
+            
         }
     }
-    
-   // return @{@"hi":5};
-    
-    
+    NSDictionary * mapDict = [NSDictionary dictionaryWithDictionary:mapForSearch];
+    NSLog(@"mapDict is %@",mapDict);
+    return mapDict;
 }
-
 
 @end
