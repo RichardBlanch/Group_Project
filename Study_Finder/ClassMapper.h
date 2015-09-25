@@ -10,8 +10,10 @@
 
 
 @interface ClassMapper : NSObject
+@property NSMutableArray *userClasses;
 +(NSDictionary *)MakeDictionary;
 +(NSArray *)create;
 +(NSString *)hookUpClasses:(NSString *)userClassSearch;
 +(void )matchSearchWithClass:(NSString *)userSearch;
+-(void)getClasses;
 @end

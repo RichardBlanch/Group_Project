@@ -7,8 +7,10 @@
 //
 
 #import "ProfileViewController.h"
+#import "ClassMapper.h"
 
 @interface ProfileViewController ()
+@property ClassMapper * mapper;
 
 @end
 
@@ -18,6 +20,7 @@
     [super viewDidLoad];
     [self setUpTableView];
      self.tableView.separatorColor = [UIColor lightGrayColor];
+    self.mapper =   [[ClassMapper alloc]init];
 }
 
 
@@ -38,10 +41,12 @@
     OrganicSection * firstStaticSection = [OrganicSection sectionWithHeaderTitle:@"User" cells:@[helloWorldCell,goodByeWorldCell]];
     
     NSArray *demoDataSource = @[@"Computer Systems", @"Software-Development", @"Astronomy", @"Calculus"];
-    OrganicSection *sectionWithReuse = [OrganicSection sectionSupportingReuseWithTitle:@"Section with Reuse" cellCount:demoDataSource.count cellHeight:55 cellForRowBlock:^UITableViewCell *(UITableView *tableView, NSInteger row) {
+    OrganicSection *sectionWithReuse = [OrganicSection sectionSupportingReuseWithTitle:@"Classes" cellCount:demoDataSource.count cellHeight:55 cellForRowBlock:^UITableViewCell *(UITableView *tableView, NSInteger row) {
         static NSString *cellReuseID = @"celReuseID";
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellReuseID];
+        [self.mapper getClasses];
+        NSLog(@"array is %@",self.mapper.userClasses);
        
         
         if (!cell) {

@@ -15,14 +15,42 @@
 
 
 @implementation ClassMapper
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.userClasses = [[NSMutableArray alloc]init];
+    }
+    return self;
+}
 +(NSArray *)create{
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
     NSString * path = [[NSBundle mainBundle]pathForResource:@"computerScience" ofType:@"txt"];
     NSString * text = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     NSMutableArray * text2 = [text componentsSeparatedByString:@"\n"];
-    
     return text2;
     
+}
+-(void )getClasses {
+    PFUser * currentUser = [PFUser currentUser];
+    int count = 0;
+    NSMutableArray * array = [[NSMutableArray alloc]init];
+    PFRelation * relation = [currentUser relationForKey:@"Classes"];
+    PFQuery * query = [relation query];
+        [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+           if(objects.count > 0) {
+               for (PFObject * object in objects) {
+                   [self.userClasses addObject:object];
+               }
+               
+               
+           }
+           NSLog(@"The array is %@",array);
+           
+       }];
+
+
+   
 }
 
 
@@ -50,7 +78,6 @@
     
     
     return  @"";
-    
     
     
 }
@@ -93,6 +120,7 @@
 
     return mapDict;
 }
+
 +(void)matchSearchWithClass:(NSString *)userSearch {
     PFQuery * query = [PFQuery queryWithClassName:@"Class"];
     [query whereKey:@"ClassName" containsString:userSearch];
@@ -110,8 +138,8 @@
         
         
             }];
-    
 }
+
 
 
 @end
