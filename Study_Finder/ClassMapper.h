@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ClassMapper : NSObject
-+(void)MakeDictionary;
 
+@interface ClassMapper : NSObject
++(NSDictionary *)MakeDictionary;
++(NSArray *)create;
++(NSString *)hookUpClasses:(NSString *)userClassSearch;
++(void )matchSearchWithClass:(NSString *)userSearch;
 @end

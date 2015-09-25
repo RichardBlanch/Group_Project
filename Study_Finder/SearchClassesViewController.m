@@ -7,8 +7,11 @@
 //
 
 #import "SearchClassesViewController.h"
+#import "ClassMapper.h"
 
 @interface SearchClassesViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *classNumberTextField;
+@property (weak, nonatomic) IBOutlet UITextField *classNumberTwoTextField;
 
 @end
 
@@ -18,11 +21,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)search:(id)sender {
+    NSMutableString * userSearch = [[NSMutableString alloc]init];
+    [userSearch appendString:self.classNumberTextField.text];
+    [userSearch appendString:self.classNumberTwoTextField.text];
+    NSString * classFound = [ClassMapper hookUpClasses:userSearch];
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"Your Class" message:[NSString stringWithFormat:@"%@",classFound] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction * yes = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //ADD CODE FOR SEGUE
+    }];
+    [alertController addAction:yes];
+    [self presentViewController:alertController animated:YES completion:nil];
+    [ClassMapper matchSearchWithClass:userSearch];
+    
+    
+    
 }
+
 
 
 
