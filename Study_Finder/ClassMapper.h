@@ -18,9 +18,10 @@
 +(void )matchSearchWithClass:(NSString *)userSearch;
 - (void)getClasses:(void(^)(NSMutableArray * who))completionHandler;
 +(NSString *)getUserName:(PFUser *)currentUser;
-+(void)saveSubject:(PFObject *)classToCheck WithSubject:(NSString *)subjectToSave;
++(void)saveSubject:(PFObject *)classToCheck WithSubject:(NSString *)subjectToSave refreshTableView:(UITableView *)tableView;
 + (void)getSubjects:(PFObject *)classToSearch block:(void(^)(NSArray * parseReturnedSubjects))completionHandler;
 + (void)getMessages:(PFObject *)subjectsToSearch block:(void(^)(NSArray * parseReturnedMessages))completionHandler;
 +(void)updateImage:(PFUser *)currentUser withPhoto:(UIImage *)profilePic;
 + (void)getProfilePictureFromParse:(PFUser *)currentUser block:(void(^)(NSData * imageReturnedAsData))completionHandler;
++(void)saveUserLocation:(CLLocation *)currentLocation forUser:(PFUser *)currentUser;
 @end

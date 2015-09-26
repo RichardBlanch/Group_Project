@@ -30,6 +30,9 @@
 		8183BED11BB399A300637E4E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8183BED01BB399A300637E4E /* ProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
 		81E8459F1BB63F50005E0228 /* SubjectsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E8459E1BB63F50005E0228 /* SubjectsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		81EDB3A31BB670B800E3109C /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EDB3A21BB670B800E3109C /* LogInViewController.m */; settings = {ASSET_TAGS = (); }; };
+		81EDB3AA1BB74DE700E3109C /* LocationManagerHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EDB3A91BB74DE700E3109C /* LocationManagerHandler.m */; settings = {ASSET_TAGS = (); }; };
+		81EDB3AD1BB74E9600E3109C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EDB3AC1BB74E9600E3109C /* MapViewController.m */; settings = {ASSET_TAGS = (); }; };
+		81EDB3AF1BB74EC500E3109C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81EDB3AE1BB74EC500E3109C /* MapKit.framework */; };
 		81F8CD911BB3970A0096AF26 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F8CD901BB3970A0096AF26 /* main.m */; };
 		81F8CD941BB3970A0096AF26 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F8CD931BB3970A0096AF26 /* AppDelegate.m */; };
 		81F8CD9A1BB3970A0096AF26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81F8CD981BB3970A0096AF26 /* Main.storyboard */; };
@@ -103,6 +106,11 @@
 		81E8459E1BB63F50005E0228 /* SubjectsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectsTableViewController.m; sourceTree = "<group>"; };
 		81EDB3A11BB670B800E3109C /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		81EDB3A21BB670B800E3109C /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
+		81EDB3A81BB74DE700E3109C /* LocationManagerHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManagerHandler.h; sourceTree = "<group>"; };
+		81EDB3A91BB74DE700E3109C /* LocationManagerHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManagerHandler.m; sourceTree = "<group>"; };
+		81EDB3AB1BB74E9600E3109C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		81EDB3AC1BB74E9600E3109C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		81EDB3AE1BB74EC500E3109C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		81F8CD8C1BB3970A0096AF26 /* Study_Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Study_Finder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F8CD901BB3970A0096AF26 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		81F8CD921BB3970A0096AF26 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -157,6 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81EDB3AF1BB74EC500E3109C /* MapKit.framework in Frameworks */,
 				813A33041BB3A77500852B04 /* Bolts.framework in Frameworks */,
 				813A32FE1BB3A63300852B04 /* libsqlite3.tbd in Frameworks */,
 				813A32FC1BB3A5EF00852B04 /* libz.1.dylib in Frameworks */,
@@ -199,13 +208,25 @@
 				813A33061BB3A9AD00852B04 /* SignUPViewController.m */,
 				81EDB3A11BB670B800E3109C /* LogInViewController.h */,
 				81EDB3A21BB670B800E3109C /* LogInViewController.m */,
+				81EDB3AB1BB74E9600E3109C /* MapViewController.h */,
+				81EDB3AC1BB74E9600E3109C /* MapViewController.m */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		81EDB3A71BB74DD400E3109C /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				81EDB3A81BB74DE700E3109C /* LocationManagerHandler.h */,
+				81EDB3A91BB74DE700E3109C /* LocationManagerHandler.m */,
+			);
+			name = Singletons;
 			sourceTree = "<group>";
 		};
 		81F8CD831BB3970A0096AF26 = {
 			isa = PBXGroup;
 			children = (
+				81EDB3A71BB74DD400E3109C /* Singletons */,
 				81F8CDD11BB3979C0096AF26 /* Frameworks */,
 				81F8CD8E1BB3970A0096AF26 /* Study_Finder */,
 				81F8CDA81BB3970B0096AF26 /* Study_FinderTests */,
@@ -314,6 +335,7 @@
 		81F8CDD11BB3979C0096AF26 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				81EDB3AE1BB74EC500E3109C /* MapKit.framework */,
 				813A32FD1BB3A63300852B04 /* libsqlite3.tbd */,
 				813A32FB1BB3A5EF00852B04 /* libz.1.dylib */,
 				813A32F91BB3A53E00852B04 /* SystemConfiguration.framework */,
@@ -513,8 +535,10 @@
 				81F8CDF11BB397F10096AF26 /* LoremIpsum.m in Sources */,
 				81F8CDCD1BB397210096AF26 /* MessageTableViewCell.m in Sources */,
 				81F8CDE61BB397B00096AF26 /* SLKInputAccessoryView.m in Sources */,
+				81EDB3AD1BB74E9600E3109C /* MapViewController.m in Sources */,
 				81F8CDEA1BB397B00096AF26 /* SLKTextViewController.m in Sources */,
 				81EDB3A31BB670B800E3109C /* LogInViewController.m in Sources */,
+				81EDB3AA1BB74DE700E3109C /* LocationManagerHandler.m in Sources */,
 				813A330C1BB3AF3500852B04 /* SearchClassesViewController.m in Sources */,
 				81F8CDE91BB397B00096AF26 /* SLKTextView+SLKAdditions.m in Sources */,
 				81F8CDD01BB397210096AF26 /* Message.m in Sources */,

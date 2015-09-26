@@ -25,6 +25,7 @@
     [ClassMapper getSubjects:self.classClicked block:^(NSArray *parseReturnedSubjects) {
         if (parseReturnedSubjects.count > 0) {
             self.subjectsArray = parseReturnedSubjects;
+            self.subjectSet = self.subjectsArray;
             [self.tableView reloadData];
         }
     }];
@@ -57,7 +58,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuse" forIndexPath:indexPath];
     if (self.subjectsArray.count > 0) {
-        PFObject * subject = self.subjectsArray[indexPath.row];
+        NSArray * arrayFromSet = [self.subjectSet allObjects];
+        PFObject * subject = arrayFromSet[indexPath.row];
         NSString * titleForSection = subject[@"SubjectTitle"];
         cell.textLabel.text = titleForSection;
     }
@@ -69,7 +71,8 @@
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.subjectClicked = self.subjectsArray[indexPath.row];
+    NSArray * arrayFromSet = [self.subjectSet allObjects];
+    self.subjectClicked = arrayFromSet[indexPath.row];
     [self performSegueWithIdentifier:@"goToMessages" sender:self];
     
 }
@@ -83,15 +86,22 @@
 -(void)addSubject{
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Add Subject" message:@"subject name" preferredStyle:(UIAlertControllerStyleAlert)];
     [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        self.addSubjectTextField = textField.text;
     
     }];
     UIAlertAction * addSubject = [UIAlertAction actionWithTitle:@"Add Class" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         UITextField * string = alert.textFields[0];
         
       
-         [ClassMapper saveSubject:self.classClicked WithSubject:string.text];
-    
+        [ClassMapper saveSubject:self.classClicked WithSubject:string.text refreshTableView:self.tableView];
+        
+        [ClassMapper getSubjects:self.classClicked block:^(NSArray *parseReturnedSubjects) {
+            if (parseReturnedSubjects.count > 0) {
+                self.subjectsArray = parseReturnedSubjects;
+                self.subjectSet = self.subjectsArray;
+                [self.tableView reloadData];
+            }
+        }];
+        
     }];
     [alert addAction:addSubject];
     UIAlertAction * cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -99,55 +109,16 @@
     }];
     [alert addAction:cancel];
     [self presentViewController:alert animated:YES completion:nil];
+   
+    
+
     
 }
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"Section";
+    return @"Subjects";
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

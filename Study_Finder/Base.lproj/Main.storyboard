@@ -275,9 +275,18 @@
                                     <segue destination="cSg-ph-6Or" kind="show" id="ngE-nK-Ekx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mbl-uo-ZpH">
+                                <rect key="frame" x="271" y="436" width="59" height="30"/>
+                                <state key="normal" title="Location"/>
+                                <connections>
+                                    <segue destination="SzC-0a-c7i" kind="show" identifier="locationSegue" id="Q6r-VE-DdM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Mbl-uo-ZpH" firstAttribute="centerX" secondItem="gAM-d3-AR5" secondAttribute="centerX" id="0IA-Wz-btg"/>
+                            <constraint firstItem="Mbl-uo-ZpH" firstAttribute="top" secondItem="K5q-kf-Oz5" secondAttribute="bottom" id="0nF-RD-VsT"/>
                             <constraint firstItem="h25-T3-c8I" firstAttribute="top" secondItem="qRa-dU-V3o" secondAttribute="bottom" constant="64" id="4T4-Bm-ybL"/>
                             <constraint firstItem="tM9-9i-9jb" firstAttribute="top" secondItem="bEV-pA-dkn" secondAttribute="bottom" constant="81" id="9Hc-Bq-UsG"/>
                             <constraint firstItem="h25-T3-c8I" firstAttribute="centerX" secondItem="gAM-d3-AR5" secondAttribute="centerX" id="Jdr-m5-Q2A"/>
@@ -298,6 +307,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="inF-O8-YT9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="839" y="-27"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="UL4-67-yPM">
+            <objects>
+                <viewController id="SzC-0a-c7i" customClass="MapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oDW-7I-ycu"/>
+                        <viewControllerLayoutGuide type="bottom" id="bFm-yD-HDa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0br-ks-eVj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qzB-d6-0aQ">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <connections>
+                                    <outlet property="delegate" destination="SzC-0a-c7i" id="ykU-i3-eoW"/>
+                                </connections>
+                            </mapView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="be7-BI-kj9">
+                                <rect key="frame" x="241" y="526" width="118" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="114" id="Pu6-UK-sxJ"/>
+                                    <constraint firstAttribute="height" constant="30" id="Zvj-Tj-taF"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="changeSize:" destination="SzC-0a-c7i" eventType="valueChanged" id="rm1-kT-bYT"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="qzB-d6-0aQ" secondAttribute="trailing" id="Ujz-sw-8hU"/>
+                            <constraint firstItem="qzB-d6-0aQ" firstAttribute="leading" secondItem="0br-ks-eVj" secondAttribute="leading" id="dWp-uZ-GcD"/>
+                            <constraint firstItem="be7-BI-kj9" firstAttribute="centerX" secondItem="0br-ks-eVj" secondAttribute="centerX" id="nJw-SP-3sy"/>
+                            <constraint firstItem="qzB-d6-0aQ" firstAttribute="top" secondItem="oDW-7I-ycu" secondAttribute="bottom" id="sQQ-Z6-rCm"/>
+                            <constraint firstItem="bFm-yD-HDa" firstAttribute="top" secondItem="be7-BI-kj9" secondAttribute="bottom" constant="44" id="vwg-Xw-IBd"/>
+                            <constraint firstItem="bFm-yD-HDa" firstAttribute="top" secondItem="qzB-d6-0aQ" secondAttribute="bottom" id="yq3-hj-nBg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="qzB-d6-0aQ" id="sMY-iA-NRx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYc-d2-Jvg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1521" y="-60"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Uxs-kL-oZV">

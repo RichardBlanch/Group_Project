@@ -10,8 +10,9 @@
 #import <Parse/Parse.h>
 
 @interface SubjectsTableViewController : UITableViewController
-@property (nonatomic,strong) NSArray * subjectsArray;
+@property (nonatomic,strong) NSMutableArray * subjectsArray;
 @property (nonatomic,strong) PFObject * classClicked;
 @property (nonatomic,strong) PFObject * subjectClicked;
+@property (nonatomic,strong) NSSet * subjectSet;
 
 @end

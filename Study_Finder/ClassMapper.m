@@ -133,7 +133,7 @@
         
             }];
 }
-+(void)saveSubject:(PFObject *)classToCheck WithSubject:(NSString *)subjectToSave {
++(void)saveSubject:(PFObject *)classToCheck WithSubject:(NSString *)subjectToSave refreshTableView:(UITableView *)tableView {
     
     PFObject * newSubject = [PFObject objectWithClassName:@"Subject"];
     newSubject[@"SubjectTitle"] = subjectToSave;
@@ -145,6 +145,7 @@
             [classToCheck saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                 if (error == nil) {
                     NSLog(@"potentially saved relationship.");
+                    [tableView reloadData];
                 }
             }];
         }
@@ -190,8 +191,17 @@
             completionHandler(data);
         }
     }];
-
 }
++(void)saveUserLocation:(CLLocation *)currentLocation forUser:(PFUser *)currentUser {
+    PFGeoPoint * location = [PFGeoPoint geoPointWithLocation:currentLocation];
+    currentUser[@"Location"] = location;
+    [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"saved users location");
+        }
+    }];
+}
+
 
 
 

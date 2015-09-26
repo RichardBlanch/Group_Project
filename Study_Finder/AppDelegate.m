@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h> 
 #import "ClassMapper.h"
+#import "LocationManagerHandler.h"
+#import <MapKit/MapKit.h>
+
 
 @interface AppDelegate ()
 
@@ -23,7 +26,11 @@
     [Parse setApplicationId:@"ThAclBBlJUtqwKHWZMNTt3EnKWpsI57Y2CrYc0bs"
                   clientKey:@"N8OoQrSKv5gKwv0Rlq9t95jtObiEZ6aKkRepngq2"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    ClassMapper * mapper = [[ClassMapper alloc]init];
+    
+    LocationManagerHandler *theLocationManagerHandler = [LocationManagerHandler defaultLocationManagerHandler];
+    [theLocationManagerHandler setUpLocationManager];
+    
+    
    
     
     return YES;
