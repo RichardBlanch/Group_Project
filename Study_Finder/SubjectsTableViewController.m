@@ -8,6 +8,7 @@
 
 #import "SubjectsTableViewController.h"
 #import "ClassMapper.h"
+#import "MessageViewController.h"
 
 @interface SubjectsTableViewController ()
 
@@ -19,7 +20,7 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.hidden = NO;
     NSLog(@"class is %@",self.classClicked);
-    [ClassMapper dummySaveSubject:self.classClicked];
+   //r [ClassMapper dummySaveSubject:self.classClicked];
     [ClassMapper getSubjects:self.classClicked block:^(NSArray *parseReturnedSubjects) {
         if (parseReturnedSubjects.count > 0) {
             self.subjectsArray = parseReturnedSubjects;
@@ -42,7 +43,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
     if (self.subjectsArray.count > 0) {
         return self.subjectsArray.count;
     }
@@ -66,7 +66,18 @@
     
     return cell;
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.subjectClicked = self.subjectsArray[indexPath.row];
+    [self performSegueWithIdentifier:@"goToMessages" sender:self];
+    
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"goToMessages"])
+    {
+        MessageViewController * mVC = (MessageViewController *)segue.destinationViewController;
+        mVC.clickedSubject = self.subjectClicked;
+    }
+}
 
 /*
 // Override to support conditional editing of the table view.

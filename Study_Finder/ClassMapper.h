@@ -20,4 +20,5 @@
 +(NSString *)getUserName:(PFUser *)currentUser;
 +(void)dummySaveSubject:(PFObject *)classToCheck;
 + (void)getSubjects:(PFObject *)classToSearch block:(void(^)(NSArray * parseReturnedSubjects))completionHandler;
++ (void)getMessages:(PFObject *)subjectsToSearch block:(void(^)(NSArray * parseReturnedMessages))completionHandler;
 @end

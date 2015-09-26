@@ -162,6 +162,16 @@
     }];
 
 }
++ (void)getMessages:(PFObject *)subjectsToSearch block:(void(^)(NSArray * parseReturnedMessages))completionHandler {
+    PFRelation * messagesForClass = [subjectsToSearch relationForKey:@"Messages"];
+    PFQuery * query = [messagesForClass query];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if(objects.count > 0) {
+            completionHandler(objects);
+        }
+    }];
+    
+}
 
 
 

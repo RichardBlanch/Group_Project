@@ -12,5 +12,6 @@
 @interface SubjectsTableViewController : UITableViewController
 @property (nonatomic,strong) NSArray * subjectsArray;
 @property (nonatomic,strong) PFObject * classClicked;
+@property (nonatomic,strong) PFObject * subjectClicked;
 
 @end
