@@ -8,6 +8,7 @@
 
 #import "SearchClassesViewController.h"
 #import "ClassMapper.h"
+#import <Parse/Parse.h>
 
 @interface SearchClassesViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *classNumberTextField;
@@ -28,11 +29,14 @@
     NSString * classFound = [ClassMapper hookUpClasses:userSearch];
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"Your Class" message:[NSString stringWithFormat:@"%@",classFound] preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction * yes = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //ADD CODE FOR SEGUE
+       
+        NSLog(@"Current user is %@",[PFUser currentUser]);
+        [ClassMapper matchSearchWithClass:userSearch];
+        
     }];
     [alertController addAction:yes];
     [self presentViewController:alertController animated:YES completion:nil];
-    [ClassMapper matchSearchWithClass:userSearch];
+   
     
     
     

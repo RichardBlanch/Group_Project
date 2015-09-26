@@ -7,7 +7,7 @@
 //
 
 #import "ClassMapper.h"
-#import <Parse/Parse.h>
+
 
 
 
@@ -31,21 +31,21 @@
     return text2;
     
 }
--(void )getClasses {
+- (void)getClasses:(void(^)(NSMutableArray * who))completionHandler{
     PFUser * currentUser = [PFUser currentUser];
-    int count = 0;
-    NSMutableArray * array = [[NSMutableArray alloc]init];
+    NSMutableArray * tempArrayForClasses = [[NSMutableArray alloc]init];
+    
     PFRelation * relation = [currentUser relationForKey:@"Classes"];
     PFQuery * query = [relation query];
         [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
            if(objects.count > 0) {
                for (PFObject * object in objects) {
-                   [self.userClasses addObject:object];
+                   [tempArrayForClasses addObject:object];
+
                }
                
-               
+               completionHandler(tempArrayForClasses);
            }
-           NSLog(@"The array is %@",array);
            
        }];
 
@@ -59,18 +59,7 @@
     NSDictionary * dictionaryForMappingUserSearch = [self MakeDictionary];
     NSArray * classNumber = dictionaryForMappingUserSearch.allKeys;
     NSArray * classDecription = dictionaryForMappingUserSearch.allValues;
-   // for(NSString * string in classNumber) {
-//        NSLog(@"string is %@",string);
-//        NSString * realString = string;
-//        PFObject * object = [PFObject objectWithClassName:@"Class"];
-//        [object addObject:realString forKey:@"ClassName"];
-//        [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-//            if(succeeded) {
-//                NSLog(@"suceess");
-//            }
-//        }];
-        
-   // }
+
     if([classNumber containsObject:userClassSearch]) {
         NSLog(@"YEAH WE GOT THAT GUY");
         return userClassSearch;
@@ -120,6 +109,11 @@
 
     return mapDict;
 }
++(NSString *)getUserName:(PFUser *)currentUser {
+    NSString * userName = currentUser[@"username"];
+    return userName;
+    
+}
 
 +(void)matchSearchWithClass:(NSString *)userSearch {
     PFQuery * query = [PFQuery queryWithClassName:@"Class"];
@@ -139,6 +133,36 @@
         
             }];
 }
++(void)dummySaveSubject:(PFObject *)classToCheck {
+    
+    PFObject * newSubject = [PFObject objectWithClassName:@"Subject"];
+    newSubject[@"SubjectTitle"] = @"Study Session Koebel";
+    [newSubject saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"saved dummy Subject");
+            PFRelation * relation = [classToCheck relationForKey:@"SubjectsForClass"];
+            [relation addObject:newSubject];
+            [classToCheck saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                if (error == nil) {
+                    NSLog(@"potentially saved relationship.");
+                }
+            }];
+        }
+    }];
+
+}
+
++ (void)getSubjects:(PFObject *)classToSearch block:(void(^)(NSArray * parseReturnedSubjects))completionHandler {
+    PFRelation * subjectsForClass = [classToSearch relationForKey:@"SubjectsForClass"];
+    PFQuery * query = [subjectsForClass query];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if(objects.count > 0) {
+            completionHandler(objects);
+        }
+    }];
+
+}
+
 
 
 

@@ -8,9 +8,14 @@
 
 #import "ProfileViewController.h"
 #import "ClassMapper.h"
+#import "AppDelegate.h"
+#import <Parse/Parse.h>
+#import "SubjectsTableViewController.h"
 
 @interface ProfileViewController ()
 @property ClassMapper * mapper;
+@property (nonatomic,strong) NSArray * classes;
+@property (nonatomic,strong) PFObject * userClickedClass;
 
 @end
 
@@ -18,18 +23,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUpTableView];
+     self.classes = [[NSMutableArray alloc]init];
      self.tableView.separatorColor = [UIColor lightGrayColor];
-    self.mapper =   [[ClassMapper alloc]init];
+    self.mapper = [[ClassMapper alloc]init];
+    
+    [self.mapper getClasses:^ void(NSMutableArray *who) {
+        
+        self.classes = who;
+         [self setUpTableView];
+     }];
+    
+   
+    
+    
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PFObject * classHit = self.classes[indexPath.row];
+    self.userClickedClass = classHit;
+    [self performSegueWithIdentifier:@"goToSubjects" sender:self];
 }
 
 
 
 -(void)setUpTableView {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
     OrganicCell * helloWorldCell = [OrganicCell cellWithStyle:UITableViewCellStyleValue1 height:100 actionBlock:^{
         //
     }];
-    helloWorldCell.textLabel.text = @"Rich Blanchard";
+        helloWorldCell.textLabel.text = [ClassMapper getUserName:[PFUser currentUser]];
     helloWorldCell.imageView.image = [UIImage imageNamed: @"ballers"];
     
     OrganicCell * goodByeWorldCell = [OrganicCell cellWithStyle:UITableViewCellStyleValue2 height:55 actionBlock:^{
@@ -41,11 +64,10 @@
     OrganicSection * firstStaticSection = [OrganicSection sectionWithHeaderTitle:@"User" cells:@[helloWorldCell,goodByeWorldCell]];
     
     NSArray *demoDataSource = @[@"Computer Systems", @"Software-Development", @"Astronomy", @"Calculus"];
-    OrganicSection *sectionWithReuse = [OrganicSection sectionSupportingReuseWithTitle:@"Classes" cellCount:demoDataSource.count cellHeight:55 cellForRowBlock:^UITableViewCell *(UITableView *tableView, NSInteger row) {
+    OrganicSection *sectionWithReuse = [OrganicSection sectionSupportingReuseWithTitle:@"Classes" cellCount:self.classes.count cellHeight:55 cellForRowBlock:^UITableViewCell *(UITableView *tableView, NSInteger row) {
         static NSString *cellReuseID = @"celReuseID";
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellReuseID];
-        [self.mapper getClasses];
         NSLog(@"array is %@",self.mapper.userClasses);
        
         
@@ -54,15 +76,25 @@
             
         }
         
-        cell.textLabel.text = demoDataSource[row];
-        
+        PFObject * class = self.classes[row];
+        NSString * className = class[@"ClassName"];
+        cell.textLabel.text = className;
         return cell;
         
     } actionBlock:^(NSInteger row) {
        
     }];
     
-    self.sections = @[firstStaticSection, sectionWithReuse];}
+    self.sections = @[firstStaticSection, sectionWithReuse];
+                   });
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"goToSubjects"]) {
+        SubjectsTableViewController * vc = (SubjectsTableViewController *)segue.destinationViewController;
+        vc.classClicked = self.userClickedClass;
+    }
+}
+
 
 
 

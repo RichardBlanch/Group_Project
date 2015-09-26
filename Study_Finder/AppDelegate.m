@@ -8,8 +8,10 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h> 
+#import "ClassMapper.h"
 
 @interface AppDelegate ()
+
 
 @end
 
@@ -21,6 +23,9 @@
     [Parse setApplicationId:@"ThAclBBlJUtqwKHWZMNTt3EnKWpsI57Y2CrYc0bs"
                   clientKey:@"N8OoQrSKv5gKwv0Rlq9t95jtObiEZ6aKkRepngq2"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    ClassMapper * mapper = [[ClassMapper alloc]init];
+   
+    
     return YES;
 }
 

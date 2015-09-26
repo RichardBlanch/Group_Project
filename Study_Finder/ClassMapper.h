@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
 
 @interface ClassMapper : NSObject
@@ -15,5 +16,8 @@
 +(NSArray *)create;
 +(NSString *)hookUpClasses:(NSString *)userClassSearch;
 +(void )matchSearchWithClass:(NSString *)userSearch;
--(void)getClasses;
+- (void)getClasses:(void(^)(NSMutableArray * who))completionHandler;
++(NSString *)getUserName:(PFUser *)currentUser;
++(void)dummySaveSubject:(PFObject *)classToCheck;
++ (void)getSubjects:(PFObject *)classToSearch block:(void(^)(NSArray * parseReturnedSubjects))completionHandler;
 @end
