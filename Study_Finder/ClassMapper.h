@@ -18,7 +18,7 @@
 +(void )matchSearchWithClass:(NSString *)userSearch;
 - (void)getClasses:(void(^)(NSMutableArray * who))completionHandler;
 +(NSString *)getUserName:(PFUser *)currentUser;
-+(void)dummySaveSubject:(PFObject *)classToCheck;
++(void)saveSubject:(PFObject *)classToCheck WithSubject:(NSString *)subjectToSave;
 + (void)getSubjects:(PFObject *)classToSearch block:(void(^)(NSArray * parseReturnedSubjects))completionHandler;
 + (void)getMessages:(PFObject *)subjectsToSearch block:(void(^)(NSArray * parseReturnedMessages))completionHandler;
 @end

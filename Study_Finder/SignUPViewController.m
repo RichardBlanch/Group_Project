@@ -35,6 +35,7 @@
     [currentUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (error == nil) {
             NSLog(@"sucess user signed up.");
+            [self performSegueWithIdentifier:@"searchClasses" sender:self];
         }
         else {
              NSLog(@"ERROR SIGNING UP");

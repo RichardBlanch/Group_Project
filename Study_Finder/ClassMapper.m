@@ -133,10 +133,10 @@
         
             }];
 }
-+(void)dummySaveSubject:(PFObject *)classToCheck {
++(void)saveSubject:(PFObject *)classToCheck WithSubject:(NSString *)subjectToSave {
     
     PFObject * newSubject = [PFObject objectWithClassName:@"Subject"];
-    newSubject[@"SubjectTitle"] = @"Study Session Koebel";
+    newSubject[@"SubjectTitle"] = subjectToSave;
     [newSubject saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             NSLog(@"saved dummy Subject");

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="i9a-Jc-C92">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xaW-B6-52F">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -86,6 +86,10 @@
                             <outlet property="delegate" destination="3ZX-6B-z6Y" id="qVH-xT-Hi1"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem systemItem="add" id="Rdp-4d-BJl"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToMessages" id="myf-Zm-frg"/>
                     </connections>
@@ -112,12 +116,14 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yJz-yv-IUc">
                                 <rect key="frame" x="0.0" y="397" width="600" height="30"/>
                                 <color key="backgroundColor" red="0.1333333333" green="0.16862745100000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wIU-kY-mHz">
                                 <rect key="frame" x="0.0" y="435" width="600" height="30"/>
                                 <color key="backgroundColor" red="0.1333333333" green="0.16862745100000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.94012164429530198" green="0.94012164429530198" blue="0.94012164429530198" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -131,6 +137,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NsX-M7-D5H">
                                 <rect key="frame" x="0.0" y="468" width="600" height="30"/>
                                 <color key="backgroundColor" red="0.1333333333" green="0.16862745100000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.99386535234899331" green="0.99386535234899331" blue="0.99386535234899331" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -159,7 +166,7 @@
                         <outlet property="emailTextField" destination="yJz-yv-IUc" id="mNc-xq-Em0"/>
                         <outlet property="passwordTextField" destination="NsX-M7-D5H" id="Gf6-Rc-HNj"/>
                         <outlet property="usernameTextField" destination="wIU-kY-mHz" id="sV9-kb-OFq"/>
-                        <segue destination="i9a-Jc-C92" kind="show" identifier="dummySeg" id="Hbt-HR-2qy"/>
+                        <segue destination="i9a-Jc-C92" kind="show" identifier="searchClasses" id="Hbt-HR-2qy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzy-fn-52g" userLabel="First Responder" sceneMemberID="firstResponder"/>

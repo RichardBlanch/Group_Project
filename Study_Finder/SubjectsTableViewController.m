@@ -11,6 +11,7 @@
 #import "MessageViewController.h"
 
 @interface SubjectsTableViewController ()
+@property (nonatomic,strong)  NSString * addSubjectTextField;
 
 @end
 
@@ -28,8 +29,9 @@
         }
     }];
        
-   
+    UIBarButtonItem * ADD = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addSubject)];
 
+    self.navigationItem.rightBarButtonItem = ADD;
    
 }
 
@@ -77,6 +79,28 @@
         MessageViewController * mVC = (MessageViewController *)segue.destinationViewController;
         mVC.clickedSubject = self.subjectClicked;
     }
+}
+-(void)addSubject{
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Add Subject" message:@"subject name" preferredStyle:(UIAlertControllerStyleAlert)];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        self.addSubjectTextField = textField.text;
+    
+    }];
+    UIAlertAction * addSubject = [UIAlertAction actionWithTitle:@"Add Class" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UITextField * string = alert.textFields[0];
+        
+      
+         [ClassMapper saveSubject:self.classClicked WithSubject:string.text];
+    
+    }];
+    [alert addAction:addSubject];
+    UIAlertAction * cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //cancel
+    }];
+    [alert addAction:cancel];
+    [self presentViewController:alert animated:YES completion:nil];
+                                 
+    
 }
 
 /*
