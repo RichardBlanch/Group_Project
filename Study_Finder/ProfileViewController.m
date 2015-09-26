@@ -16,6 +16,8 @@
 @property ClassMapper * mapper;
 @property (nonatomic,strong) NSArray * classes;
 @property (nonatomic,strong) PFObject * userClickedClass;
+@property (nonatomic,strong) UIImage * profPicChanged;
+@property (nonatomic,strong) UIImage * profPicGrabbedFromParse;
 
 @end
 
@@ -23,6 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
      self.classes = [[NSMutableArray alloc]init];
      self.tableView.separatorColor = [UIColor lightGrayColor];
     self.mapper = [[ClassMapper alloc]init];
@@ -32,6 +36,7 @@
         self.classes = who;
          [self setUpTableView];
      }];
+    self.navigationController.navigationBar.hidden = NO;
     
    
     
@@ -54,6 +59,25 @@
     }];
         helloWorldCell.textLabel.text = [ClassMapper getUserName:[PFUser currentUser]];
     helloWorldCell.imageView.image = [UIImage imageNamed: @"ballers"];
+    helloWorldCell.imageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(addPhoto)];
+        helloWorldCell.imageView.gestureRecognizers = @[tap];
+        
+        PFUser * currentUser = [PFUser currentUser];
+        PFFile * file = currentUser[@"profilePicture"];
+        [file getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+            if(data) {
+                UIImage * profPicFromParse = [UIImage imageWithData:data];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.profPicGrabbedFromParse = profPicFromParse;
+                    helloWorldCell.imageView.image = self.profPicGrabbedFromParse;
+                    
+                });
+            }
+        }];
+
+   
+        
     
     OrganicCell * goodByeWorldCell = [OrganicCell cellWithStyle:UITableViewCellStyleValue2 height:55 actionBlock:^{
         //
@@ -87,6 +111,7 @@
     
     self.sections = @[firstStaticSection, sectionWithReuse];
                    });
+   //  [self addBarButtonItem];
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"goToSubjects"]) {
@@ -94,6 +119,25 @@
         vc.classClicked = self.userClickedClass;
     }
 }
+-(void)addPhoto {
+    UIImagePickerController * imagePicker = [[UIImagePickerController alloc]init];
+    [self presentViewController:imagePicker animated:YES completion:nil];
+    imagePicker.delegate = self;
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+}
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    PFUser * user = [PFUser currentUser];
+    self.profPicChanged = info[@"UIImagePickerControllerOriginalImage"];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [ClassMapper updateImage:user withPhoto:self.profPicChanged];
+    
+}
+
 
 
 

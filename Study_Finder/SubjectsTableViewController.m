@@ -99,8 +99,11 @@
     }];
     [alert addAction:cancel];
     [self presentViewController:alert animated:YES completion:nil];
-                                 
     
+}
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"Section";
 }
 
 /*

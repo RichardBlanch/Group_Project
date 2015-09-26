@@ -8,6 +8,6 @@
 
 #import "OrganicViewController.h"
 
-@interface ProfileViewController : OrganicViewController
+@interface ProfileViewController : OrganicViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @end

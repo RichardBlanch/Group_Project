@@ -21,4 +21,6 @@
 +(void)saveSubject:(PFObject *)classToCheck WithSubject:(NSString *)subjectToSave;
 + (void)getSubjects:(PFObject *)classToSearch block:(void(^)(NSArray * parseReturnedSubjects))completionHandler;
 + (void)getMessages:(PFObject *)subjectsToSearch block:(void(^)(NSArray * parseReturnedMessages))completionHandler;
++(void)updateImage:(PFUser *)currentUser withPhoto:(UIImage *)profilePic;
++ (void)getProfilePictureFromParse:(PFUser *)currentUser block:(void(^)(NSData * imageReturnedAsData))completionHandler;
 @end

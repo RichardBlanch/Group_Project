@@ -29,6 +29,7 @@
 		813A33121BB4E35700852B04 /* SearchForClassesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813A33111BB4E35700852B04 /* SearchForClassesViewController.m */; settings = {ASSET_TAGS = (); }; };
 		8183BED11BB399A300637E4E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8183BED01BB399A300637E4E /* ProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
 		81E8459F1BB63F50005E0228 /* SubjectsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E8459E1BB63F50005E0228 /* SubjectsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		81EDB3A31BB670B800E3109C /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EDB3A21BB670B800E3109C /* LogInViewController.m */; settings = {ASSET_TAGS = (); }; };
 		81F8CD911BB3970A0096AF26 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F8CD901BB3970A0096AF26 /* main.m */; };
 		81F8CD941BB3970A0096AF26 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F8CD931BB3970A0096AF26 /* AppDelegate.m */; };
 		81F8CD9A1BB3970A0096AF26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81F8CD981BB3970A0096AF26 /* Main.storyboard */; };
@@ -100,6 +101,8 @@
 		8183BED01BB399A300637E4E /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		81E8459D1BB63F50005E0228 /* SubjectsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectsTableViewController.h; sourceTree = "<group>"; };
 		81E8459E1BB63F50005E0228 /* SubjectsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectsTableViewController.m; sourceTree = "<group>"; };
+		81EDB3A11BB670B800E3109C /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
+		81EDB3A21BB670B800E3109C /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
 		81F8CD8C1BB3970A0096AF26 /* Study_Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Study_Finder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F8CD901BB3970A0096AF26 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		81F8CD921BB3970A0096AF26 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -194,6 +197,8 @@
 			children = (
 				813A33051BB3A9AD00852B04 /* SignUPViewController.h */,
 				813A33061BB3A9AD00852B04 /* SignUPViewController.m */,
+				81EDB3A11BB670B800E3109C /* LogInViewController.h */,
+				81EDB3A21BB670B800E3109C /* LogInViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -509,6 +514,7 @@
 				81F8CDCD1BB397210096AF26 /* MessageTableViewCell.m in Sources */,
 				81F8CDE61BB397B00096AF26 /* SLKInputAccessoryView.m in Sources */,
 				81F8CDEA1BB397B00096AF26 /* SLKTextViewController.m in Sources */,
+				81EDB3A31BB670B800E3109C /* LogInViewController.m in Sources */,
 				813A330C1BB3AF3500852B04 /* SearchClassesViewController.m in Sources */,
 				81F8CDE91BB397B00096AF26 /* SLKTextView+SLKAdditions.m in Sources */,
 				81F8CDD01BB397210096AF26 /* Message.m in Sources */,

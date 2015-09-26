@@ -172,7 +172,26 @@
     }];
     
 }
++(void)updateImage:(PFUser *)currentUser withPhoto:(UIImage *)profilePic {
+    NSData * data = UIImageJPEGRepresentation(profilePic, 0.5f);
+    PFFile * imageFile = [PFFile fileWithName:@"Image.jpg" data:data];
+    currentUser[@"profilePicture"] = imageFile;
+    [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if(succeeded) {
+            NSLog(@"saved photo");
+        }
+    }];
+}
++ (void)getProfilePictureFromParse:(PFUser *)currentUser block:(void(^)(NSData * imageReturnedAsData))completionHandler {
+    
+    PFFile * file = currentUser[@"profilePicture"];
+    [file getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+        if(data) {
+            completionHandler(data);
+        }
+    }];
 
+}
 
 
 
