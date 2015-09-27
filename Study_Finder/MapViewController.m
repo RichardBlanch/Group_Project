@@ -11,6 +11,7 @@
 #import <MapKit/MapKit.h>
 #import <Parse/Parse.h>
 #import "ClassMapper.h"
+#import "User.h"
 
 #define zoominMapArea 2100
 
@@ -58,6 +59,7 @@
 - (IBAction)changeSize:(UISlider *)sender {
     [self.mapView removeOverlay:self.areaOfMessage.circle];
     [self addCircle:sender.value * 200];
+    PFUser * currentUser = [PFUser currentUser];
     
     PFQuery * queryLocations = [PFUser query];
     PFGeoPoint * geoPoint = [PFGeoPoint geoPointWithLocation:self.currentLocation];
@@ -70,10 +72,17 @@
                 double latitude = point.latitude;
                 double longitude = point.longitude;
                 CLLocationCoordinate2D friendsCoordinates = CLLocationCoordinate2DMake(latitude, longitude);
-                MKPointAnnotation * spot = [[MKPointAnnotation alloc]init];
-                spot.title = userWithinRadius[@"username"];
-                spot.subtitle = @"Eat my balls";
-                spot.coordinate = friendsCoordinates;
+               // MKPointAnnotation * spot = [[MKPointAnnotation alloc]init];
+                  User * spot = [[User alloc]init];
+                NSString * user = userWithinRadius[@"username"];
+                if(user != currentUser[@"username"]) {
+                  
+                    spot.title = user;
+                    spot.subtitle = @"WHOOO";
+                    spot.coordinate = friendsCoordinates;
+               
+                }
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [_mapView addAnnotation:spot];
                 });
@@ -82,6 +91,23 @@
     }];
    
 }
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+   
+    MKPinAnnotationView *pin = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"String"];
+    pin.animatesDrop = YES;
+    pin.canShowCallout = YES;
+    User * user = annotation;
+    UIButton *  rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    pin.rightCalloutAccessoryView = rightButton;
+    UIImageView * profilePicImageView = [[UIImageView alloc]initWithFrame:CGRectMake(5, 5, 55, 55)];
+    profilePicImageView.image = [UIImage imageNamed:@"ballers"];
+    profilePicImageView.layer.cornerRadius = profilePicImageView.frame.size.width / 2;
+    pin.leftCalloutAccessoryView = profilePicImageView;
+    
+    
+    return pin;
+}
+
 
 
 
