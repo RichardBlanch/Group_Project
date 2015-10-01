@@ -4,6 +4,7 @@
 target 'Study_Finder' do
 pod 'Organic'
 pod 'IQKeyboardManager'
+pod 'KBRoundedButton'
 
 end
 

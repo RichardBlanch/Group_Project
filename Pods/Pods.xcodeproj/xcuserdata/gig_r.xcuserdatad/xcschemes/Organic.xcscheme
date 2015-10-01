@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "19EC47CED15C9C60D6F8BC6C"
+               BlueprintIdentifier = "0BEAAF5D55722E3D1EBD3C35"
                BuildableName = "libOrganic.a"
                BlueprintName = "Organic"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -8,11 +8,13 @@
 
 #import "SignUPViewController.h"
 #import <Parse/Parse.h>
+#import <KBRoundedButton.h>
 
 @interface SignUPViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet KBRoundedButton *roundedButton;
 
 @end
 
@@ -20,7 +22,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self.roundedButton setTitleColorForStateNormal:[UIColor blackColor]];
+    [self.roundedButton setBackgroundColorForStateNormal:[UIColor colorWithRed:196.0/255.0 green:171.0/255.0 blue:105.0/255.0 alpha:1.0]];
+    [self.roundedButton setTitle:@"Sign Up" forState:UIControlStateNormal];
+    self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {

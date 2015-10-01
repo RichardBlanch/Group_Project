@@ -29,10 +29,13 @@
             [self.tableView reloadData];
         }
     }];
+    [self addSubject];
        
     UIBarButtonItem * ADD = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addSubject)];
 
     self.navigationItem.rightBarButtonItem = ADD;
+     self.navigationController.navigationBar.hidden = NO;
+    
    
 }
 
@@ -92,7 +95,7 @@
         UITextField * string = alert.textFields[0];
         
       
-        [ClassMapper saveSubject:self.classClicked WithSubject:string.text refreshTableView:self.tableView];
+        [ClassMapper saveSubject:self.classClicked WithSubject:@"study sesh" refreshTableView:self.tableView];
         
         [ClassMapper getSubjects:self.classClicked block:^(NSArray *parseReturnedSubjects) {
             if (parseReturnedSubjects.count > 0) {
