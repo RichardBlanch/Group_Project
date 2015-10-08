@@ -222,6 +222,19 @@
         }
     }];
 }
++(void)getInbox:(PFUser *)User block:(void (^)(NSArray * parseReturnedClassmates))completionHandler {
+    PFRelation * inbox = [User relationForKey:@"Inbox"];
+    PFQuery * query = inbox.query;
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if (objects.count > 0) {
+            for(PFObject * message in objects) {
+                NSString * string = message[@"Message"];
+                NSLog(@"%@",string);
+            }
+            completionHandler(objects);
+        }
+    }];
+}
 
 
 

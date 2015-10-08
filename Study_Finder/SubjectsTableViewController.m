@@ -78,6 +78,7 @@
         MessageViewController * mVC = (MessageViewController *)segue.destinationViewController;
         mVC.clickedSubject = self.subjectClicked;
         mVC.classmates = self.classmates;
+        mVC.parentClass = self.classClicked;
     }
 }
 -(void)addSubject {

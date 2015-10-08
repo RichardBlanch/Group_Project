@@ -25,4 +25,5 @@
 + (void)getProfilePictureFromParse:(PFUser *)currentUser block:(void(^)(NSData * imageReturnedAsData))completionHandler;
 +(void)saveUserLocation:(CLLocation *)currentLocation forUser:(PFUser *)currentUser;
 +(void)getClassmates:(PFObject *)class block:(void (^)(NSArray * parseReturnedClassmates))completionHandler;
++(void)getInbox:(PFUser *)User block:(void (^)(NSArray * parseReturnedClassmates))completionHandler;
 @end

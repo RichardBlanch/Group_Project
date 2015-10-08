@@ -57,11 +57,7 @@
     OrganicCell * helloWorldCell = [OrganicCell cellWithStyle:UITableViewCellStyleValue1 height:100 actionBlock:^{
         //
     }];
-        helloWorldCell.textLabel.text = [ClassMapper getUserName:[PFUser currentUser]];
-    helloWorldCell.imageView.image = [UIImage imageNamed: @"ballers"];
-    helloWorldCell.imageView.userInteractionEnabled = YES;
-        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(addPhoto)];
-        helloWorldCell.imageView.gestureRecognizers = @[tap];
+       
         
         PFUser * currentUser = [PFUser currentUser];
         PFFile * file = currentUser[@"profilePicture"];
@@ -71,6 +67,10 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     self.profPicGrabbedFromParse = profPicFromParse;
                     helloWorldCell.imageView.image = self.profPicGrabbedFromParse;
+                    helloWorldCell.textLabel.text = [ClassMapper getUserName:[PFUser currentUser]];
+                    helloWorldCell.imageView.userInteractionEnabled = YES;
+                    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(addPhoto)];
+                    helloWorldCell.imageView.gestureRecognizers = @[tap];
                     
                 });
             }
