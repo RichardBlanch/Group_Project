@@ -22,11 +22,10 @@
 @implementation SearchClassesViewController
 
 - (void)viewDidLoad {
-    self.navigationController.navigationBarHidden = YES;
+    
     [super viewDidLoad];
-    [self.roundedButton setTitleColorForStateNormal:[UIColor blackColor]];
-    [self.roundedButton setBackgroundColorForStateNormal:[UIColor colorWithRed:196.0/255.0 green:171.0/255.0 blue:105.0/255.0 alpha:1.0]];
-    [self.roundedButton setTitle:@"Search" forState:UIControlStateNormal];
+    [self setUpController];
+    
     
     // Do any additional setup after loading the view.
 }
@@ -45,9 +44,12 @@
     [alertController addAction:yes];
     [self presentViewController:alertController animated:YES completion:nil];
    
-    
-    
-    
+}
+-(void)setUpController {
+    [self.navigationItem setHidesBackButton:YES animated:YES];
+    [self.roundedButton setTitleColorForStateNormal:[UIColor blackColor]];
+    [self.roundedButton setBackgroundColorForStateNormal:[UIColor colorWithRed:196.0/255.0 green:171.0/255.0 blue:105.0/255.0 alpha:1.0]];
+    [self.roundedButton setTitle:@"Search" forState:UIControlStateNormal];
 }
 
 

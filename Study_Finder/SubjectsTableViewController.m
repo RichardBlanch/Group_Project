@@ -19,22 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.hidden = NO;
-    NSLog(@"class is %@",self.classClicked);
-   //r [ClassMapper dummySaveSubject:self.classClicked];
-    [ClassMapper getSubjects:self.classClicked block:^(NSArray *parseReturnedSubjects) {
-        if (parseReturnedSubjects.count > 0) {
-            self.subjectsArray = parseReturnedSubjects;
-            self.subjectSet = self.subjectsArray;
-            [self.tableView reloadData];
-        }
-    }];
-    [self addSubject];
-       
-    UIBarButtonItem * ADD = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addSubject)];
-
-    self.navigationItem.rightBarButtonItem = ADD;
-     self.navigationController.navigationBar.hidden = NO;
+    [self setUpController];
+   
+   
     
    
 }
@@ -86,16 +73,18 @@
         mVC.clickedSubject = self.subjectClicked;
     }
 }
--(void)addSubject{
-    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Add Subject" message:@"subject name" preferredStyle:(UIAlertControllerStyleAlert)];
+-(void)addSubject {
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Add Subject" message:@"Subject Name" preferredStyle:(UIAlertControllerStyleAlert)];
     [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
     
     }];
     UIAlertAction * addSubject = [UIAlertAction actionWithTitle:@"Add Class" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+       
         UITextField * string = alert.textFields[0];
         
+        
       
-        [ClassMapper saveSubject:self.classClicked WithSubject:@"study sesh" refreshTableView:self.tableView];
+        [ClassMapper saveSubject:self.classClicked WithSubject:string.text refreshTableView:self.tableView];
         
         [ClassMapper getSubjects:self.classClicked block:^(NSArray *parseReturnedSubjects) {
             if (parseReturnedSubjects.count > 0) {
@@ -120,6 +109,20 @@
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     return @"Subjects";
+}
+-(void)setUpController {
+    NSLog(@"class is %@",self.classClicked);
+    [ClassMapper getSubjects:self.classClicked block:^(NSArray *parseReturnedSubjects) {
+        if (parseReturnedSubjects.count > 0) {
+            self.subjectsArray = parseReturnedSubjects;
+            self.subjectSet = self.subjectsArray;
+            [self.tableView reloadData];
+        }
+    }];
+    
+    UIBarButtonItem * ADD = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addSubject)];
+    
+    self.navigationItem.rightBarButtonItem = ADD;
 }
 
 
