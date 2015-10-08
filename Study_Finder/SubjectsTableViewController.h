@@ -14,5 +14,6 @@
 @property (nonatomic,strong) PFObject * classClicked;
 @property (nonatomic,strong) PFObject * subjectClicked;
 @property (nonatomic,strong) NSSet * subjectSet;
+@property (nonatomic,strong) NSArray * classmates;
 
 @end

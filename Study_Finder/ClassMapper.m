@@ -122,11 +122,21 @@
         NSLog(@"objects are %@",objects);
         PFUser * currentUser = [PFUser currentUser];
         PFRelation * relation = [currentUser relationForKey:@"Classes"];
-        [relation addObject:objects[0]];
+        PFObject * class = objects[0];
+        [relation addObject:class];
         [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
             if(succeeded)
             {
-            NSLog(@"SAVED THE CLASS!");
+                
+                PFRelation * ClassMembers = [class relationForKey:@"ClassMember"];
+                [ClassMembers addObject:currentUser];
+                [class saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                    if (succeeded) {
+                        NSLog(@"all gucci");
+                    }
+                }];
+                
+                
             }
         }];
         
@@ -201,6 +211,18 @@
         }
     }];
 }
++(void)getClassmates:(PFObject *)class block:(void (^)(NSArray * parseReturnedClassmates))completionHandler {
+    
+    PFRelation * classmates = [class relationForKey:@"ClassMember"];
+    PFQuery * query = classmates.query;
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if(objects.count > 0) {
+            completionHandler(objects);
+            
+        }
+    }];
+}
+
 
 
 

@@ -19,7 +19,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self setUpController];
+    
+    [ClassMapper getClassmates:self.classClicked block:^(NSArray *parseReturnedClassmates) {
+        NSLog(@"THE CLASSMATES ARE %@",parseReturnedClassmates);
+        self.classmates = parseReturnedClassmates;
+    }];
    
    
     
@@ -71,6 +77,7 @@
     {
         MessageViewController * mVC = (MessageViewController *)segue.destinationViewController;
         mVC.clickedSubject = self.subjectClicked;
+        mVC.classmates = self.classmates;
     }
 }
 -(void)addSubject {
@@ -117,6 +124,7 @@
             self.subjectsArray = parseReturnedSubjects;
             self.subjectSet = self.subjectsArray;
             [self.tableView reloadData];
+            
         }
     }];
     
