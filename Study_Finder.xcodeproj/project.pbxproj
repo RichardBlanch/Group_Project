@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D2CEF1767EB8B8A364B6503 /* libPods-Study_Finder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F944FC4979AD245B5E5B5EAC /* libPods-Study_Finder.a */; };
+		8122278D1BC61C5D00C856C8 /* InboxTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8122278C1BC61C5D00C856C8 /* InboxTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		813A32E81BB3A4FB00852B04 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 813A32E71BB3A4FB00852B04 /* Accounts.framework */; };
 		813A32EA1BB3A50500852B04 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 813A32E91BB3A50500852B04 /* AudioToolbox.framework */; };
 		813A32EC1BB3A50D00852B04 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 813A32EB1BB3A50D00852B04 /* CFNetwork.framework */; };
@@ -34,6 +35,7 @@
 		81EDB3AA1BB74DE700E3109C /* LocationManagerHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EDB3A91BB74DE700E3109C /* LocationManagerHandler.m */; settings = {ASSET_TAGS = (); }; };
 		81EDB3AD1BB74E9600E3109C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EDB3AC1BB74E9600E3109C /* MapViewController.m */; settings = {ASSET_TAGS = (); }; };
 		81EDB3AF1BB74EC500E3109C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81EDB3AE1BB74EC500E3109C /* MapKit.framework */; };
+		81F61D051BC73BD200FAA639 /* CustomMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F61D041BC73BD200FAA639 /* CustomMessageTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		81F8CD911BB3970A0096AF26 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F8CD901BB3970A0096AF26 /* main.m */; };
 		81F8CD941BB3970A0096AF26 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F8CD931BB3970A0096AF26 /* AppDelegate.m */; };
 		81F8CD9A1BB3970A0096AF26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81F8CD981BB3970A0096AF26 /* Main.storyboard */; };
@@ -78,6 +80,8 @@
 /* Begin PBXFileReference section */
 		1E19F04AA8AAD1ED0C72EE34 /* Pods-Study_Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study_Finder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Study_Finder/Pods-Study_Finder.debug.xcconfig"; sourceTree = "<group>"; };
 		7256419A35657DD0C0566F35 /* Pods-Study_Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study_Finder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Study_Finder/Pods-Study_Finder.release.xcconfig"; sourceTree = "<group>"; };
+		8122278B1BC61C5D00C856C8 /* InboxTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxTableViewController.h; sourceTree = "<group>"; };
+		8122278C1BC61C5D00C856C8 /* InboxTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxTableViewController.m; sourceTree = "<group>"; };
 		813A32E71BB3A4FB00852B04 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		813A32E91BB3A50500852B04 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		813A32EB1BB3A50D00852B04 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -114,6 +118,8 @@
 		81EDB3AB1BB74E9600E3109C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		81EDB3AC1BB74E9600E3109C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		81EDB3AE1BB74EC500E3109C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		81F61D031BC73BD200FAA639 /* CustomMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMessageTableViewCell.h; sourceTree = "<group>"; };
+		81F61D041BC73BD200FAA639 /* CustomMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomMessageTableViewCell.m; sourceTree = "<group>"; };
 		81F8CD8C1BB3970A0096AF26 /* Study_Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Study_Finder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F8CD901BB3970A0096AF26 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		81F8CD921BB3970A0096AF26 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -215,6 +221,8 @@
 				81EDB3AC1BB74E9600E3109C /* MapViewController.m */,
 				81B86B8A1BB76E1800AE1F60 /* User.h */,
 				81B86B8B1BB76E1800AE1F60 /* User.m */,
+				8122278B1BC61C5D00C856C8 /* InboxTableViewController.h */,
+				8122278C1BC61C5D00C856C8 /* InboxTableViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -254,6 +262,8 @@
 		81F8CD8E1BB3970A0096AF26 /* Study_Finder */ = {
 			isa = PBXGroup;
 			children = (
+				81F61D031BC73BD200FAA639 /* CustomMessageTableViewCell.h */,
+				81F61D041BC73BD200FAA639 /* CustomMessageTableViewCell.m */,
 				813A33031BB3A77500852B04 /* Bolts.framework */,
 				813A33011BB3A76F00852B04 /* Parse.framework */,
 				813A32DF1BB3A1C500852B04 /* View Controllers */,
@@ -557,7 +567,9 @@
 				81F8CDEB1BB397B00096AF26 /* SLKTypingIndicatorView.m in Sources */,
 				81F8CD941BB3970A0096AF26 /* AppDelegate.m in Sources */,
 				81F8CDE71BB397B00096AF26 /* SLKTextInputbar.m in Sources */,
+				81F61D051BC73BD200FAA639 /* CustomMessageTableViewCell.m in Sources */,
 				813A330F1BB3AF8900852B04 /* ClassMapper.m in Sources */,
+				8122278D1BC61C5D00C856C8 /* InboxTableViewController.m in Sources */,
 				81F8CDEE1BB397B00096AF26 /* UIView+SLKAdditions.m in Sources */,
 				81F8CDE81BB397B00096AF26 /* SLKTextView.m in Sources */,
 				81F8CD911BB3970A0096AF26 /* main.m in Sources */,

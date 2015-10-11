@@ -29,9 +29,7 @@
     
     LocationManagerHandler *theLocationManagerHandler = [LocationManagerHandler defaultLocationManagerHandler];
     [theLocationManagerHandler setUpLocationManager];
-    [ClassMapper getInbox:[PFUser currentUser] block:^(NSArray *parseReturnedClassmates) {
-        NSLog(@"inbox is %@",parseReturnedClassmates);
-    }];
+   
    
     
     return YES;

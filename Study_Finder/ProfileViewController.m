@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import "SubjectsTableViewController.h"
+#import "InboxTableViewController.h"
 
 @interface ProfileViewController ()
 @property ClassMapper * mapper;
@@ -18,6 +19,7 @@
 @property (nonatomic,strong) PFObject * userClickedClass;
 @property (nonatomic,strong) UIImage * profPicChanged;
 @property (nonatomic,strong) UIImage * profPicGrabbedFromParse;
+@property (nonatomic,strong) NSArray * messages;
 
 @end
 
@@ -44,9 +46,11 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+  
     PFObject * classHit = self.classes[indexPath.row];
     self.userClickedClass = classHit;
     [self performSegueWithIdentifier:@"goToSubjects" sender:self];
+    
 }
 
 
@@ -55,7 +59,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         
     OrganicCell * helloWorldCell = [OrganicCell cellWithStyle:UITableViewCellStyleValue1 height:100 actionBlock:^{
-        //
+        
     }];
        
         
@@ -84,8 +88,18 @@
     }];
     goodByeWorldCell.textLabel.text = @"";
     goodByeWorldCell.backgroundColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0];
+        
     
     OrganicSection * firstStaticSection = [OrganicSection sectionWithHeaderTitle:@"User" cells:@[helloWorldCell,goodByeWorldCell]];
+        OrganicCell *randomCell = [OrganicCell cellWithStyle:UITableViewCellStyleSubtitle height:44 actionBlock:^{
+            
+        }];
+        randomCell.textLabel.text = [NSString stringWithFormat:@"5 messages"];
+        randomCell.imageView.image = [UIImage imageNamed:@"inbox"];
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(who)];
+        [randomCell addGestureRecognizer:tap];
+        
+        OrganicSection *secondStaticSection = [OrganicSection sectionWithCells:@[randomCell]];
     
     NSArray *demoDataSource = @[@"Computer Systems", @"Software-Development", @"Astronomy", @"Calculus"];
     OrganicSection *sectionWithReuse = [OrganicSection sectionSupportingReuseWithTitle:@"Classes" cellCount:self.classes.count cellHeight:55 cellForRowBlock:^UITableViewCell *(UITableView *tableView, NSInteger row) {
@@ -109,7 +123,7 @@
        
     }];
     
-    self.sections = @[firstStaticSection, sectionWithReuse];
+    self.sections = @[firstStaticSection,secondStaticSection, sectionWithReuse];
                    });
    //  [self addBarButtonItem];
 }
@@ -117,6 +131,11 @@
     if([segue.identifier isEqualToString:@"goToSubjects"]) {
         SubjectsTableViewController * vc = (SubjectsTableViewController *)segue.destinationViewController;
         vc.classClicked = self.userClickedClass;
+    }
+    else if ([segue.identifier isEqualToString:@"goToMessages"]) {
+        InboxTableViewController * iTVC = (InboxTableViewController *)segue.destinationViewController;
+        iTVC.messages = self.messages;
+        
     }
 }
 -(void)addPhoto {
@@ -136,6 +155,16 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     [ClassMapper updateImage:user withPhoto:self.profPicChanged];
     
+}
+-(void)who {
+    [ClassMapper getInbox:[PFUser currentUser] block:^(NSArray *parseReturnedClassmates) {
+        self.messages = parseReturnedClassmates;
+        dispatch_async(dispatch_get_main_queue(), ^{
+             [self performSegueWithIdentifier:@"goToMessages" sender:self];
+        });
+       
+    }];
+
 }
 
 

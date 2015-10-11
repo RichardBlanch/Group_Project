@@ -116,7 +116,7 @@
                 if(user != currentUser[@"username"]) {
                     
                     spot.title = user;
-                    spot.subtitle = @"WHOOO";
+                    spot.subtitle = @"Norlin";
                     spot.coordinate = friendsCoordinates;
                     [ClassMapper getProfilePictureFromParse:userWithinRadius block:^(NSData *imageReturnedAsData) {
                         spot.picture = [UIImage imageWithData:imageReturnedAsData];

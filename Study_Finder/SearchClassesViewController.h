@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SearchClassesViewController : UIViewController
-
+@property (strong, nonatomic) UIImage * imageToSave;
 @end
