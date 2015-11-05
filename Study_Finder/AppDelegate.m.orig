@@ -30,7 +30,17 @@
     
     LocationManagerHandler *theLocationManagerHandler = [LocationManagerHandler defaultLocationManagerHandler];
     [theLocationManagerHandler setUpLocationManager];
+<<<<<<< HEAD
    
+=======
+    [ClassMapper getInbox:[PFUser currentUser] block:^(NSArray *parseReturnedClassmates) {
+        NSLog(@"inbox is %@",parseReturnedClassmates);
+    }];
+     ParseDetails * parseDetails = [ParseDetails sharedParseDetails];
+   
+    
+    
+>>>>>>> newBranch
    
     
     return YES;

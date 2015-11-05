@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *classNumberTwoTextField;
 @property (weak, nonatomic) IBOutlet KBRoundedButton *roundedButton;
 
+
 @end
 
 @implementation SearchClassesViewController
@@ -27,8 +28,12 @@
     
     [super viewDidLoad];
     [self setUpController];
+<<<<<<< HEAD
+    [ClassMapper updateImage:[PFUser currentUser] withPhoto:self.imageToSave];
+=======
     [self getMessages];
        
+>>>>>>> newBranch
     
     
     // Do any additional setup after loading the view.
