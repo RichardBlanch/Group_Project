@@ -79,8 +79,6 @@
             
         
                 
-            
-            
            
             PFRelation * groupsForClass = [tempArrayForClasses[i] relationForKey:@"GroupsForClass"];
             PFQuery * excecuteQuery = [groupsForClass query];
@@ -96,18 +94,6 @@
                 
             }];
             [self groups:groups withSubjects:subjects andClass:classesFromDict];
-           
-           
-//            OrderedDictionary * test = [[OrderedDictionary alloc]init];
-//            [test insertObject:groups forKey:@"groups" atIndex:0];
-//            [test insertObject:subjects forKey:@"subjects" atIndex:0];
-//            [test insertObject:classesFromDict forKey:@"Class" atIndex:0];
-//            [test insertObject:arrayForMessages forKey:@"Messages" atIndex:0];
-//            NSMutableArray * checker = [self.parseDetails objectForKey:@"indexedSubjects"];
-//            [checker insertObject:test atIndex:0];
-            
-            
-        
         }];
     }
     
@@ -124,32 +110,7 @@
     NSMutableArray * checker = [self.parseDetails objectForKey:@"indexedSubjects"];
     [checker insertObject:test atIndex:0];
 }
--(void)sortOrder {
-     NSMutableArray * checker = [self.parseDetails objectForKey:@"indexedSubjects"];
-    NSMutableArray * arrayOfArraysForMessages = [[NSMutableArray alloc]init];
-   dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-     dispatch_async(queue, ^{
-         for(int i =0; i < checker.count; i++) {
-        OrderedDictionary * dict = checker[i];
-        NSArray * subjectArray = [dict valueForKey:@"subjects"];
-        for(int j = 0; j < subjectArray.count; j++) {
-        
-            PFObject * subject = subjectArray[j];
-        PFRelation * getMessages = [subject relationForKey:@"Messages"];
-        PFQuery * queryMessages = [getMessages query];
-        [queryMessages findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-            if(objects.count > 0) {
-            [arrayOfArraysForMessages addObject:objects];
-            }
-        }];
-             //[dict setValue:arrayOfArraysForMessages forKey:@"Messages"];
-            
-        }
-             [dict insertObject:arrayOfArraysForMessages forKey:@"Messages" atIndex:i];
-    }
-         
-         });
-}
+
 
 
 @end
