@@ -11,77 +11,48 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import "SubjectsTableViewController.h"
-#import "classmatesTableViewController.h"
-#import "ParseDetails.h"
-#import "OrderedDictionary.h"
 
-@interface ProfileViewController ()  <dismissToGroupsAndClasses>
+@interface ProfileViewController ()
 @property ClassMapper * mapper;
-@property (nonatomic,strong) NSMutableArray * classes;
+@property (nonatomic,strong) NSArray * classes;
 @property (nonatomic,strong) PFObject * userClickedClass;
 @property (nonatomic,strong) UIImage * profPicChanged;
 @property (nonatomic,strong) UIImage * profPicGrabbedFromParse;
-@property (nonatomic,strong) NSMutableArray * groupSelected;
-@property (nonatomic,strong) NSMutableArray * subjectSelected;
-@property (nonatomic,strong) NSMutableDictionary * functionalDict;
-@property  NSInteger  indexPathForUse;
-
 
 @end
 
 @implementation ProfileViewController
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.groupSelected = [[NSMutableArray alloc]init];
-    self.subjectSelected = [[NSMutableArray alloc]init];
-     ParseDetails * parseCache = [ParseDetails sharedParseDetails];
-    NSMutableArray * something = [parseCache.parseDetails objectForKey:@"indexedSubjects"];
-    NSLog(@"Something is %@",something);
-    
     
     
      self.classes = [[NSMutableArray alloc]init];
      self.tableView.separatorColor = [UIColor lightGrayColor];
     self.mapper = [[ClassMapper alloc]init];
     
-        [self getGroupsAndSubjects];
-        [self setUpTableView];
-    
-    
+    [self.mapper getClasses:^ void(NSMutableArray *who) {
+        
+        self.classes = who;
+         [self setUpTableView];
+     }];
     self.navigationController.navigationBar.hidden = NO;
-   
     
-
-    
-
    
     
     
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ParseDetails * parseCache = [ParseDetails sharedParseDetails];
-//     self.subjectSelected = [self.functionalDict valueForKey:[NSString stringWithFormat:@"Subject%d",indexPath.row]];
-//    self.groupSelected = [self.functionalDict valueForKey:[NSString stringWithFormat:@"Group%d",indexPath.row]];
-   NSArray * tempArray =  [parseCache.parseDetails objectForKey:@"indexedSubjects"];
-    self.groupSelected = [tempArray[indexPath.row] valueForKey:@"groups"];
-    self.subjectSelected = [tempArray[indexPath.row] valueForKey:@"subjects"];
-    self.indexPathForUse = indexPath.row;
-   
-    
+    PFObject * classHit = self.classes[indexPath.row];
+    self.userClickedClass = classHit;
     [self performSegueWithIdentifier:@"goToSubjects" sender:self];
 }
 
 
 
 -(void)setUpTableView {
-    
-    ParseDetails * parseCache = [ParseDetails sharedParseDetails];
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.classes = [parseCache.parseDetails objectForKey:@"classes"];
         
     OrganicCell * helloWorldCell = [OrganicCell cellWithStyle:UITableViewCellStyleValue1 height:100 actionBlock:^{
         //
@@ -121,7 +92,7 @@
         static NSString *cellReuseID = @"celReuseID";
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellReuseID];
-      //  NSLog(@"array is %@",self.mapper.userClasses);
+        NSLog(@"array is %@",self.mapper.userClasses);
        
         
         if (!cell) {
@@ -129,10 +100,8 @@
             
         }
         
-        PFObject * class = [self.functionalDict valueForKey:[NSString stringWithFormat:@"Class%d",row]];
-        NSMutableArray * something = [parseCache.parseDetails objectForKey:@"indexedSubjects"];
-        PFObject * test = [something[row] valueForKey:@"Class"];
-        NSString * className = test[@"ClassName"];
+        PFObject * class = self.classes[row];
+        NSString * className = class[@"ClassName"];
         cell.textLabel.text = className;
         return cell;
         
@@ -147,9 +116,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"goToSubjects"]) {
         SubjectsTableViewController * vc = (SubjectsTableViewController *)segue.destinationViewController;
-        vc.subjects = self.subjectSelected;
-        vc.groups = self.groupSelected;
-        vc.indexPathForUse = self.indexPathForUse;
+        vc.classClicked = self.userClickedClass;
     }
 }
 -(void)addPhoto {
@@ -170,46 +137,6 @@
     [ClassMapper updateImage:user withPhoto:self.profPicChanged];
     
 }
--(void)getGroupsAndSubjects {
-    ParseDetails * parseCache = [ParseDetails sharedParseDetails];
-//    NSMutableArray * something = [parseCache.parseDetails objectForKey:@"indexedSubjects"];
-//    self.functionalDict = [[NSMutableDictionary alloc]init];
-//    int i = 0;
-//    for(NSDictionary * dict in something) {
-//        [self.functionalDict setObject:dict[@"groups"] forKey:[NSString stringWithFormat:@"Group%d",i]];
-//        [self.functionalDict setObject:dict[@"subjects"] forKey:[NSString stringWithFormat:@"Subject%d",i]];
-//        [self.functionalDict setObject:dict[@"Class"] forKey:[NSString stringWithFormat:@"Class%d",i]];
-//        i++;
-//    }
-    NSMutableArray * temp = [parseCache.parseDetails objectForKey:@"indexedMessages"];
-    
-//    for(int i = 0; i < something.count && i < temp.count; i++) {
-//        NSDictionary * tempDic = something[i];
-//        PFObject * values = [tempDic valueForKey:@"subjects"];
-//        
-//        NSDictionary * tempDicTwo = temp[i];
-//        PFObject * valuesTwo = [tempDicTwo valueForKey:@"Subject"];
-//        
-//        
-//          NSLog(@"VALUE TWO set is %@",valuesTwo);
-//          NSLog(@"VALUE set is %@",values);
-//        
-//        
-////        NSMutableSet * tempSet1 = [NSSet setWithArray:values];
-////        NSMutableSet * tempSet2 = [NSSet setWithArray:valuesTwo];
-////        
-////        [tempSet1 intersectSet: tempSet2];
-////        NSLog(@"temp set is %@",tempSet2);
-//        
-//        
-//        
-//        
-//    }
-   
-
-    
-}
-
 
 
 

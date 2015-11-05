@@ -11,6 +11,7 @@
 #import "ClassMapper.h"
 #import "LocationManagerHandler.h"
 #import <MapKit/MapKit.h>
+#import "ParseDetails.h"
 
 
 @interface AppDelegate ()
@@ -32,6 +33,10 @@
     [ClassMapper getInbox:[PFUser currentUser] block:^(NSArray *parseReturnedClassmates) {
         NSLog(@"inbox is %@",parseReturnedClassmates);
     }];
+     ParseDetails * parseDetails = [ParseDetails sharedParseDetails];
+   
+    
+    
    
     
     return YES;

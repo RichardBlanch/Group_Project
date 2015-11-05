@@ -26,4 +26,6 @@
 +(void)saveUserLocation:(CLLocation *)currentLocation forUser:(PFUser *)currentUser;
 +(void)getClassmates:(PFObject *)class block:(void (^)(NSArray * parseReturnedClassmates))completionHandler;
 +(void)getInbox:(PFUser *)User block:(void (^)(NSArray * parseReturnedClassmates))completionHandler;
++(void)cacheDictForGroups:(PFObject *)class block:(void (^)(NSMutableDictionary * cacheDict))completionHandler;
++(void)getOnlyTheUsersGroups:(NSArray *)cacheDictVals block:(void (^)(NSMutableArray * onlyCurrentUsersGroups))completionHandler;
 @end

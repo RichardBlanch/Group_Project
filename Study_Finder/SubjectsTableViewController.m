@@ -9,28 +9,29 @@
 #import "SubjectsTableViewController.h"
 #import "ClassMapper.h"
 #import "MessageViewController.h"
+#import "ParseDetails.h"
+#import "OrderedDictionary.h"
+
 
 @interface SubjectsTableViewController ()
 @property (nonatomic,strong)  NSString * addSubjectTextField;
+@property (nonatomic,strong)  NSArray * groupsArray;
+@property (nonatomic,strong)  NSMutableArray * messages;
+@property (nonatomic,strong)  NSMutableArray * postedBy;
+
+
+
 
 @end
 
 @implementation SubjectsTableViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self setUpController];
-    
-    [ClassMapper getClassmates:self.classClicked block:^(NSArray *parseReturnedClassmates) {
-        NSLog(@"THE CLASSMATES ARE %@",parseReturnedClassmates);
-        self.classmates = parseReturnedClassmates;
-    }];
-   
-   
-    
-   
+    self.postedBy = [[NSMutableArray alloc]init];
 }
+
+
 
 
 
@@ -42,26 +43,35 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.subjectsArray.count > 0) {
-        return self.subjectsArray.count;
-    }
-    else {
-        return 0;
-    }
-        }
+   
+        return self.subjects.count;
+}
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuse" forIndexPath:indexPath];
-    if (self.subjectsArray.count > 0) {
-        NSArray * arrayFromSet = [self.subjectSet allObjects];
-        PFObject * subject = arrayFromSet[indexPath.row];
-        NSString * titleForSection = subject[@"SubjectTitle"];
-        cell.textLabel.text = titleForSection;
+    if(self.subjectsOrGroupSegmentControl.selectedSegmentIndex == 0) {
+       
+        if(self.subjects.count > 0) {
+            PFObject * subject = self.subjects[indexPath.row];
+            NSString * titleForSection = subject[@"SubjectTitle"];
+            cell.textLabel.text = titleForSection;
+        }
+   
+//        if (self.subjectsArray.count > 0) {
+//        NSArray * arrayFromSet = [self.subjectSet allObjects];
+//        PFObject * subject = arrayFromSet[indexPath.row];
+//        NSString * titleForSection = subject[@"SubjectTitle"];
+//        cell.textLabel.text = titleForSection;
+//    }
     }
     else {
-    cell.textLabel.text = @"Hello World!";
+
+        PFObject* group = self.groupsArray[indexPath.row];
+        cell.textLabel.text = group[@"groupName"];
+        
     }
+    
     
     
     return cell;
@@ -69,7 +79,30 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSArray * arrayFromSet = [self.subjectSet allObjects];
     self.subjectClicked = arrayFromSet[indexPath.row];
-    [self performSegueWithIdentifier:@"goToMessages" sender:self];
+    ParseDetails * parseCache = [ParseDetails sharedParseDetails];
+    NSArray * tempArray =  [parseCache.parseDetails objectForKey:@"indexedSubjects"];
+    NSDictionary * tempDict = tempArray[indexPath.row];
+    self.messages = [tempDict valueForKey:@"Messages"];
+    NSLog(@"messages is %@",self.messages);
+    
+    
+    ParseDetails * parse = [ParseDetails sharedParseDetails];
+    NSMutableArray * something = [parse.parseDetails objectForKey:@"indexedSubjects"];
+    NSDictionary * subjectsAndMessages = something[self.indexPathForUse];
+    NSArray * MessagesArrayBig = [subjectsAndMessages valueForKey:@"Messages"];
+    OrderedDictionary * orderDict = MessagesArrayBig[indexPath.row];
+    self.messages = [orderDict valueForKey:@"Messages"];
+    self.postedBy = [orderDict valueForKey:@"postedBy"];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self performSegueWithIdentifier:@"goToMessages" sender:self];
+    });
+    
+
+    
+    
+    
+   
     
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -79,60 +112,49 @@
         mVC.clickedSubject = self.subjectClicked;
         mVC.classmates = self.classmates;
         mVC.parentClass = self.classClicked;
+        for(PFObject * message in self.messages) {
+            NSLog(@"Content is %@",message[@"MessageContent"]);
+        }
+        mVC.messages = self.messages;
+        mVC.postedBy = self.postedBy;
     }
 }
 -(void)addSubject {
-    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Add Subject" message:@"Subject Name" preferredStyle:(UIAlertControllerStyleAlert)];
-    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
     
-    }];
-    UIAlertAction * addSubject = [UIAlertAction actionWithTitle:@"Add Class" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-       
-        UITextField * string = alert.textFields[0];
-        
-        
-      
-        [ClassMapper saveSubject:self.classClicked WithSubject:string.text refreshTableView:self.tableView];
-        
-        [ClassMapper getSubjects:self.classClicked block:^(NSArray *parseReturnedSubjects) {
-            if (parseReturnedSubjects.count > 0) {
-                self.subjectsArray = parseReturnedSubjects;
-                self.subjectSet = self.subjectsArray;
-                [self.tableView reloadData];
-            }
-        }];
-        
-    }];
-    [alert addAction:addSubject];
-    UIAlertAction * cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //cancel
-    }];
-    [alert addAction:cancel];
-    [self presentViewController:alert animated:YES completion:nil];
-   
-    
-
-    
+    [GiveAlert giveAlertForSubjectsAndSave:@"Subject Name" message:@"Message" buttonActionTitle:@"Add Subject" additionalObject:self.classClicked tableView:self.tableView forViewController:self];
 }
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     return @"Subjects";
 }
 -(void)setUpController {
-    NSLog(@"class is %@",self.classClicked);
-    [ClassMapper getSubjects:self.classClicked block:^(NSArray *parseReturnedSubjects) {
-        if (parseReturnedSubjects.count > 0) {
-            self.subjectsArray = parseReturnedSubjects;
-            self.subjectSet = self.subjectsArray;
-            [self.tableView reloadData];
+
+   
             
-        }
-    }];
+            [self.tableView reloadData];
+    
     
     UIBarButtonItem * ADD = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addSubject)];
     
     self.navigationItem.rightBarButtonItem = ADD;
 }
+- (IBAction)changeToGroupOrSection:(id)sender {
+    switch (self.subjectsOrGroupSegmentControl.selectedSegmentIndex) {
+        case 0:
+            [self.tableView reloadData];
+            break;
+        case 1:
+             [self.tableView reloadData];
+            break;
+           
+            
+            
+        default:
+            break;
+    }
+}
+
+
 
 
 

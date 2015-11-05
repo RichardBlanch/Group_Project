@@ -19,15 +19,74 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="cLx-KF-9vL"/>
+                    <connections>
+                        <segue destination="25r-te-1ym" kind="presentation" identifier="classmates" id="Tmt-TJ-GpQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3061" y="868"/>
+            <point key="canvasLocation" x="3117" y="906"/>
+        </scene>
+        <!--Classmates Table View Controller-->
+        <scene sceneID="rOC-JC-NUq">
+            <objects>
+                <viewController id="25r-te-1ym" customClass="classmatesTableViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="R5x-Hc-wEJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="FbK-pX-9G7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fwM-43-DrG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyr-Zw-Rj5">
+                                <rect key="frame" x="447" y="28" width="30" height="30"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="createGroup:" destination="25r-te-1ym" eventType="touchUpInside" id="ARX-X3-Mlb"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oTW-ar-MMg">
+                                <rect key="frame" x="0.0" y="74" width="605" height="526"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="classMateCell" id="Jcv-Fk-x9K">
+                                        <rect key="frame" x="0.0" y="28" width="605" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jcv-Fk-x9K" id="FSn-mT-bkY">
+                                            <rect key="frame" x="0.0" y="0.0" width="605" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="25r-te-1ym" id="Bfq-sr-nvh"/>
+                                    <outlet property="delegate" destination="25r-te-1ym" id="Ec5-tV-DHE"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="wyr-Zw-Rj5" secondAttribute="trailing" constant="103" id="2j0-Dj-5pI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oTW-ar-MMg" secondAttribute="trailing" constant="-25" id="EZR-2x-r8u"/>
+                            <constraint firstItem="oTW-ar-MMg" firstAttribute="top" secondItem="wyr-Zw-Rj5" secondAttribute="bottom" constant="16" id="Jj8-Ce-srp"/>
+                            <constraint firstItem="oTW-ar-MMg" firstAttribute="leading" secondItem="fwM-43-DrG" secondAttribute="leadingMargin" constant="-20" id="aRu-tz-cd7"/>
+                            <constraint firstItem="FbK-pX-9G7" firstAttribute="top" secondItem="oTW-ar-MMg" secondAttribute="bottom" id="bwb-cr-jD5"/>
+                            <constraint firstItem="wyr-Zw-Rj5" firstAttribute="top" secondItem="R5x-Hc-wEJ" secondAttribute="bottom" constant="8" id="f0Q-AX-ob8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="oTW-ar-MMg" id="r7p-DW-f9t"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uiL-9H-JxH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3983" y="890"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="Xtx-ru-40L">
             <objects>
-                <tableViewController id="cSg-ph-6Or" customClass="ProfileViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ProfileViewController" id="cSg-ph-6Or" customClass="ProfileViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="r28-Tf-GXf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -73,6 +132,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <segmentedControl key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="KEM-6G-wO9">
+                            <rect key="frame" x="0.0" y="136" width="600" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Class Subjects"/>
+                                <segment title="Group Subjects"/>
+                            </segments>
+                            <connections>
+                                <action selector="changeToGroupOrSection:" destination="3ZX-6B-z6Y" eventType="valueChanged" id="dC3-zN-NvQ"/>
+                            </connections>
+                        </segmentedControl>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuse" id="zEg-6g-7pv">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
@@ -91,6 +161,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="subjectsOrGroupSegmentControl" destination="KEM-6G-wO9" id="x18-R7-5pV"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToMessages" id="myf-Zm-frg"/>
                     </connections>
                 </tableViewController>
@@ -193,7 +264,7 @@
                                 <rect key="frame" x="15" y="518" width="560" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gho-Ej-wxB">
                                 <rect key="frame" x="15" y="486" width="560" height="30"/>
@@ -443,6 +514,6 @@
         <image name="CU_Boulder_Classroom" width="1500" height="1000"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Hbt-HR-2qy"/>
+        <segue reference="oIc-2p-cNO"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -48,9 +48,6 @@
            }
            
        }];
-
-
-   
 }
 
 
@@ -181,7 +178,6 @@
             completionHandler(objects);
         }
     }];
-    
 }
 +(void)updateImage:(PFUser *)currentUser withPhoto:(UIImage *)profilePic {
     NSData * data = UIImageJPEGRepresentation(profilePic, 0.5f);
@@ -235,6 +231,55 @@
         }
     }];
 }
++(void)cacheDictForGroups:(PFObject *)class block:(void (^)(NSMutableDictionary * cacheDict))completionHandler
+{
+    NSMutableDictionary * cacheDict = [[NSMutableDictionary alloc]init];
+    PFRelation * groupsForClass = [class relationForKey:@"GroupsForClass"];
+    PFQuery * excecuteQuery = [groupsForClass query];
+
+    [excecuteQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        
+        
+        for(int i =0; i<objects.count; i++) {
+        [cacheDict setObject:objects[i] forKey:[NSString stringWithFormat:@"group %d",i]];
+        }
+        completionHandler(cacheDict);
+        
+        
+    }];
+    
+}
++(void)getOnlyTheUsersGroups:(NSArray *)cacheDictVals block:(void (^)(NSMutableArray * onlyCurrentUsersGroups))completionHandler {
+
+    NSMutableArray * usersGroups = [NSMutableArray array];
+    
+    for (int i = 0; i < cacheDictVals.count; i++)
+    {
+        if(cacheDictVals[i] > nil) {
+            PFUser * currentUser = [PFUser currentUser];
+            PFObject * group1 = cacheDictVals[i];
+            PFRelation * groupMembers = [group1 relationForKey:@"GroupMembers"];
+            PFQuery * testQuery = [groupMembers query];
+            [testQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+                for( PFUser * object in objects) {
+                    
+                    if([object[@"username"] isEqualToString:currentUser[@"username"]]) {
+                        [usersGroups insertObject:group1 atIndex:0];
+                        
+                    }
+                }
+                completionHandler(usersGroups);
+            }];
+
+            
+        }
+    }
+    
+    
+    
+
+}
+
 
 
 
