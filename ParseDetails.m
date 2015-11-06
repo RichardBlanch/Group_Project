@@ -60,6 +60,7 @@
    
     
     NSMutableArray * arrayOfDict = [[NSMutableArray alloc]init];
+     NSMutableArray* classWithClassMates = [[NSMutableArray alloc]init];
     
     [self.parseDetails setObject:arrayOfDict forKey:@"indexedSubjects"];
     
@@ -89,24 +90,55 @@
                    
                     
                 }
+               
+                dispatch_queue_t queue;
+                queue = dispatch_queue_create("getClassmates", NULL);
+                 dispatch_async(queue, ^{
                 
+                PFRelation * classmates = [tempArrayForClasses[i] relationForKey:@"ClassMember"];
+                PFQuery * classMateQuery = classmates.query;
+                 
+                     for(PFObject * classMate in [classMateQuery findObjects]) {
+                         [classWithClassMates addObject:classMate];
+                     }
+                      [self groups:groups withSubjects:subjects andClass:classesFromDict andWithClassmates:classWithClassMates];
+                 });
                 
                 
             }];
-            [self groups:groups withSubjects:subjects andClass:classesFromDict];
+           
         }];
     }
     
     
 }
--(void)groups:(NSArray*)groups withSubjects:(NSArray *)subjects andClass:(PFObject *)Class
+-(void)groups:(NSArray*)groups withSubjects:(NSArray *)subjects andClass:(PFObject *)Class andWithClassmates:(NSArray *)classMates
 {
      OrderedDictionary * test = [[OrderedDictionary alloc]init];
-
+    NSMutableArray * dictionaryOfClassMatesWithPhotos = [[NSMutableArray alloc]init];
+     dispatch_queue_t queue;
+    queue = dispatch_queue_create("getClassmates", NULL);
+    dispatch_async(queue, ^{
+        for(PFObject * classmate in classMates) {
+            OrderedDictionary * classMateWithPhoto = [[OrderedDictionary alloc]init];
+            PFFile * file = classmate[@"profilePicture"];
+            NSData * userPick = [file getData];
+            UIImage * userPicture = [UIImage imageWithData:userPick];
+            
+            [classMateWithPhoto insertObject:classmate forKey:@"ClassMember" atIndex:0];
+            if(userPicture != nil) {
+            [classMateWithPhoto insertObject:userPicture forKey:@"Picture" atIndex:0];
+            }
+            [dictionaryOfClassMatesWithPhotos insertObject:classMateWithPhoto atIndex:0];
+        
+        }
+    });
+    
     
     [test insertObject:groups forKey:@"groups" atIndex:0];
     [test insertObject:subjects forKey:@"subjects" atIndex:0];
     [test insertObject:Class forKey:@"Class" atIndex:0];
+    [test insertObject:dictionaryOfClassMatesWithPhotos forKey:@"ClassmatesWithPhotos" atIndex:0];
     NSMutableArray * checker = [self.parseDetails objectForKey:@"indexedSubjects"];
     [checker insertObject:test atIndex:0];
 }

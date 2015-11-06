@@ -39,15 +39,18 @@
     self.subjectSelected = [[NSMutableArray alloc]init];
      ParseDetails * parseCache = [ParseDetails sharedParseDetails];
     NSMutableArray * something = [parseCache.parseDetails objectForKey:@"indexedSubjects"];
-    NSLog(@"Something is %@",something);
+    for(NSDictionary * dict in something) {
+        OrderedDictionary * classMatesWithPhotos = [dict objectForKey:@"ClassmatesWithPhotos"];
+        NSLog(@"The classmate is %@",[classMatesWithPhotos valueForKey:@"ClassMember"]);
+        NSLog(@"The picture is %@",[classMatesWithPhotos valueForKey:@"Picture"]);
+    }
     
     
     
      self.classes = [[NSMutableArray alloc]init];
      self.tableView.separatorColor = [UIColor lightGrayColor];
     self.mapper = [[ClassMapper alloc]init];
-    
-        [self getGroupsAndSubjects];
+
         [self setUpTableView];
     
     
@@ -170,45 +173,7 @@
     [ClassMapper updateImage:user withPhoto:self.profPicChanged];
     
 }
--(void)getGroupsAndSubjects {
-    ParseDetails * parseCache = [ParseDetails sharedParseDetails];
-//    NSMutableArray * something = [parseCache.parseDetails objectForKey:@"indexedSubjects"];
-//    self.functionalDict = [[NSMutableDictionary alloc]init];
-//    int i = 0;
-//    for(NSDictionary * dict in something) {
-//        [self.functionalDict setObject:dict[@"groups"] forKey:[NSString stringWithFormat:@"Group%d",i]];
-//        [self.functionalDict setObject:dict[@"subjects"] forKey:[NSString stringWithFormat:@"Subject%d",i]];
-//        [self.functionalDict setObject:dict[@"Class"] forKey:[NSString stringWithFormat:@"Class%d",i]];
-//        i++;
-//    }
-    NSMutableArray * temp = [parseCache.parseDetails objectForKey:@"indexedMessages"];
-    
-//    for(int i = 0; i < something.count && i < temp.count; i++) {
-//        NSDictionary * tempDic = something[i];
-//        PFObject * values = [tempDic valueForKey:@"subjects"];
-//        
-//        NSDictionary * tempDicTwo = temp[i];
-//        PFObject * valuesTwo = [tempDicTwo valueForKey:@"Subject"];
-//        
-//        
-//          NSLog(@"VALUE TWO set is %@",valuesTwo);
-//          NSLog(@"VALUE set is %@",values);
-//        
-//        
-////        NSMutableSet * tempSet1 = [NSSet setWithArray:values];
-////        NSMutableSet * tempSet2 = [NSSet setWithArray:valuesTwo];
-////        
-////        [tempSet1 intersectSet: tempSet2];
-////        NSLog(@"temp set is %@",tempSet2);
-//        
-//        
-//        
-//        
-//    }
-   
 
-    
-}
 
 
 

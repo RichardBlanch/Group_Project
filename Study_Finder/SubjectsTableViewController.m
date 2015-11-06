@@ -18,6 +18,7 @@
 @property (nonatomic,strong)  NSArray * groupsArray;
 @property (nonatomic,strong)  NSMutableArray * messages;
 @property (nonatomic,strong)  NSMutableArray * postedBy;
+@property (nonatomic,strong)  NSMutableDictionary * postedByDict;
 
 
 
@@ -29,6 +30,7 @@
     [super viewWillAppear:animated];
     [self setUpController];
     self.postedBy = [[NSMutableArray alloc]init];
+    self.postedByDict = [[NSMutableDictionary alloc]init];
 }
 
 
@@ -83,7 +85,9 @@
     NSArray * tempArray =  [parseCache.parseDetails objectForKey:@"indexedSubjects"];
     NSDictionary * tempDict = tempArray[indexPath.row];
     self.messages = [tempDict valueForKey:@"Messages"];
-    NSLog(@"messages is %@",self.messages);
+   
+    
+    OrderedDictionary * classAndPicsDict = [tempDict valueForKey:@"ClassmatesWithPhotos"];
     
     
     ParseDetails * parse = [ParseDetails sharedParseDetails];
@@ -93,6 +97,47 @@
     OrderedDictionary * orderDict = MessagesArrayBig[indexPath.row];
     self.messages = [orderDict valueForKey:@"Messages"];
     self.postedBy = [orderDict valueForKey:@"postedBy"];
+    NSArray * classMembers = [classAndPicsDict valueForKey:@"ClassMember"];
+    NSMutableSet * mutableSetOne = [NSMutableSet setWithArray:self.postedBy];
+    NSMutableSet * mutableSetTwo = [NSMutableSet setWithArray:classMembers];
+    NSArray * postedByStringSubject;
+    NSArray * postedByStringClass;
+    /*
+     for(int i = 0; i < self.postedBy.count; i++) {
+     
+     PFUser * test = [[classAndPicsDict keyAtIndex:i] valueForKey:@"ClassMember"];
+     NSLog(@"Test is %@",test[@"username"]);
+     [self.postedByDict setObject:[classAndPicsDict valueForKey:@"Picture"] forKey:@"Picture"];
+     
+     if([classAndPicsDict valueForKey:@"Picture"] != nil) {
+     [self.postedByDict setObject:[classAndPicsDict valueForKey:@"ClassMember"] forKey:@"ClassMember"];
+     }
+     else {
+     [self.postedByDict setObject:[UIImage imageNamed:@"ballers"] forKey:@"ClassMember"];
+     }
+     INSERT PHOTOS HERE
+     
+     
+     NSLog(@"postedByDict = %@",self.postedByDict);
+     }
+     INSERT PHOTOS HERE
+     */
+
+   
+    for(PFObject * postedBy in [classAndPicsDict valueForKey:@"ClassMember"]) {
+        if([self.postedBy containsObject:postedBy]) {
+            [ self.postedByDict setObject:[classAndPicsDict valueForKey:@"Picture"] forKey:@"Picture"];
+            if([classAndPicsDict valueForKey:@"Picture"] != nil) {
+            [self.postedByDict setObject:[classAndPicsDict valueForKey:@"ClassMember"] forKey:@"ClassMember"];
+            }
+            else {
+                [self.postedByDict setObject:[UIImage imageNamed:@"ballers"] forKey:@"ClassMember"];
+            }
+            
+        }
+        NSLog(@"postedByDict = %@",self.postedByDict);
+    }
+    
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self performSegueWithIdentifier:@"goToMessages" sender:self];
@@ -112,11 +157,9 @@
         mVC.clickedSubject = self.subjectClicked;
         mVC.classmates = self.classmates;
         mVC.parentClass = self.classClicked;
-        for(PFObject * message in self.messages) {
-            NSLog(@"Content is %@",message[@"MessageContent"]);
-        }
         mVC.messages = self.messages;
         mVC.postedBy = self.postedBy;
+        
     }
 }
 -(void)addSubject {
