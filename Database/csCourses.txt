@@ -1,107 +1,107 @@
-CSCI	1000	001 B 26717 CS as Field of Wk & Stdy LEC ECCR 1B40 138 1 5:50 PM 5:00 PM - M Black,John
-CSCI	1300	100 B 28544 CS 1: Starting Computing LEC MATH 100 235 4 1:50 PM 1:00 PM - MWF Hoenigman,Rhonda Ol
-CSCI	1300	200 B 39582 CS 1: Starting Computing LEC DUAN G1B20 215 4 8:50 AM 8:00 AM - MWF Lewis,Clayton
-CSCI	1310	100 B 32833 Computer Sci 1: With Experienc LEC MUEN E050 180 4 1:50 PM 1:00 PM - MWF Boese,Elizabeth Sugar
-CSCI	1310	101 B 32834 Computer Sci 1: With Experienc REC ECCR 211 30 4 3:50 PM 3:00 PM - T Boese,Elizabeth Sugar
-CSCI	1310	102 B 32864 Computer Sci 1: With Experienc REC ECCR 211 30 4 4:50 PM 4:00 PM - T Boese,Elizabeth Sugar
-CSCI	1310	103 B 32881 Computer Sci 1: With Experienc REC ECCR 211 30 4 5:50 PM 5:00 PM - T Boese,Elizabeth Sugar
-CSCI	1310	105 B 32940 Computer Sci 1: With Experienc REC ECCR 211 30 4 10:50 AM 10:00 AM - W Boese,Elizabeth Sugar
-CSCI	1310	108 B 32943 Computer Sci 1: With Experienc REC ECCR 211 30 4 10:50 AM 10:00 AM - TH Boese,Elizabeth Sugar
-CSCI	1310	109 B 32944 Computer Sci 1: With Experienc REC ECCR 211 30 4 11:50 AM 11:00 AM - TH Boese,Elizabeth Sugar
-CSCI	1320	100 B 32835 CS1: Engineering Applications LEC MUEN E050 200 4 8:50 AM 8:00 AM - MWF Fleming,Ioana Nicolaes
-CSCI	1320	200 B 39529 CS1: Engineering Applications LEC MUEN E050 164 4 8:50 AM 8:00 AM - MWF Fleming,Ioana Nicolaes
-CSCI	1320	301 B 32836 CS1: Engineering Applications REC ECES 107 28 0 11:50 AM 11:00 AM - T Fleming,Ioana Nicolaes
-CSCI	1320	302 B 32946 CS1: Engineering Applications REC ECES 107 28 0 12:50 PM 12:00 PM - T Fleming,Ioana Nicolaes
-CSCI	1320	303 B 32947 CS1: Engineering Applications REC ECES 107 28 0 3:50 PM 3:00 PM - W Fleming,Ioana Nicolaes
-CSCI	1320	304 B 32948 CS1: Engineering Applications REC ECES 107 28 0 10:50 AM 10:00 AM - TH Fleming,Ioana Nicolaes
-CSCI	1320	305 B 32949 CS1: Engineering Applications REC ECES 107 28 0 11:50 AM 11:00 AM - TH Fleming,Ioana Nicolaes
-CSCI	1320	306 B 32950 CS1: Engineering Applications REC ECES 107 28 0 12:50 PM 12:00 PM - TH Fleming,Ioana Nicolaes
-CSCI	1320	307 B 32951 CS1: Engineering Applications REC ECES 107 28 0 1:50 PM 1:00 PM - TH Fleming,Ioana Nicolaes
-CSCI	1320	308 B 32952 CS1: Engineering Applications REC ECES 107 28 0 2:50 PM 2:00 PM - TH Fleming,Ioana Nicolaes
-CSCI	1320	309 B 32953 CS1: Engineering Applications REC ECES 107 28 0 9:50 AM 9:00 AM - F Fleming,Ioana Nicolaes
-CSCI	1320	310 B 32954 CS1: Engineering Applications REC ECES 107 28 0 10:50 AM 10:00 AM - F Fleming,Ioana Nicolaes
-CSCI	1320	311 B 32955 CS1: Engineering Applications REC ECES 107 28 0 11:50 AM 11:00 AM - F Fleming,Ioana Nicolaes
-CSCI	1320	312 B 32956 CS1: Engineering Applications REC ECES 107 28 0 12:50 PM 12:00 PM - F Fleming,Ioana Nicolaes
-CSCI	1320	313 B 34659 CS1: Engineering Applications REC ECES 107 28 0 1:50 PM 1:00 PM - F Fleming,Ioana Nicolaes
-CSCI	2270	100 B 28568 Comp Sci II: Data Struct LEC MATH 100 312 4 3:50 PM 3:00 PM - MWF Osborne,Richard
-CSCI	2270	101 B 28569 Comp Sci II: Data Struct REC ECCS 112C 24 4 9:15 AM 8:00 AM - T Osborne,Richard
-CSCI	2270	102 B 28570 Comp Sci II: Data Struct REC ECCS 112C 24 4 10:45 AM 9:30 AM - T Osborne,Richard
-CSCI	2270	103 B 28571 Comp Sci II: Data Struct REC ECCS 112C 24 4 12:15 PM 11:00 AM - T Osborne,Richard
-CSCI	2270	104 B 28572 Comp Sci II: Data Struct REC ECCS 112C 24 4 1:45 PM 12:30 PM - T Osborne,Richard
-CSCI	2270	105 B 28573 Comp Sci II: Data Struct REC ECCS 112C 24 4 3:15 PM 2:00 PM - T Osborne,Richard
-CSCI	2270	106 B 28574 Comp Sci II: Data Struct REC ECCS 112C 24 4 4:45 PM 3:30 PM - T Osborne,Richard
-CSCI	2270	107 B 28789 Comp Sci II: Data Struct REC ECCS 112C 24 4 6:15 PM 5:00 PM - T Osborne,Richard
-CSCI	2270	109 B 28791 Comp Sci II: Data Struct REC ECCS 112C 24 4 10:45 AM 9:30 AM - TH Osborne,Richard
-CSCI	2270	110 B 28792 Comp Sci II: Data Struct REC ECCS 112C 24 4 12:15 PM 11:00 AM - TH Osborne,Richard
-CSCI	2270	111 B 28793 Comp Sci II: Data Struct REC ECCS 112C 24 4 1:45 PM 12:30 PM - TH Osborne,Richard
-CSCI	2270	112 B 28794 Comp Sci II: Data Struct REC ECCS 112C 24 4 3:15 PM 2:00 PM - TH Osborne,Richard
-CSCI	2270	113 B 34596 Comp Sci II: Data Struct REC ECCS 112C 24 4 4:45 PM 3:30 PM - TH Osborne,Richard
-CSCI	2270	114 B 34597 Comp Sci II: Data Struct REC ECCS 112C 24 4 6:15 PM 5:00 PM - TH Osborne,Richard
-CSCI	2400	100 B 26764 Computer Systems LEC GOLD A2B70 132 4 10:50 AM 10:00 AM - MWF Han,Richard Yehwhei
-CSCI	2400	200 B 39340 Computer Systems LEC ECCR 1B40 132 4 11:50 AM 11:00 AM - MWF Mishra,Shivakant
-CSCI	2400	301 B 26765 Computer Systems REC ECCS 112C 24 0 11:50 AM 11:00 AM - M Han,Richard Yehwhei
-CSCI	2400	302 B 26766 Computer Systems REC ECCS 112C 24 0 12:50 PM 12:00 PM - M Han,Richard Yehwhei
-CSCI	2400	303 B 26809 Computer Systems REC ECCS 112C 24 0 1:50 PM 1:00 PM - M Han,Richard Yehwhei
-CSCI	2400	304 B 26767 Computer Systems REC ECCS 112C 24 0 2:50 PM 2:00 PM - M Han,Richard Yehwhei
-CSCI	2400	305 B 26768 Computer Systems REC ECCS 112C 24 0 3:50 PM 3:00 PM - M Han,Richard Yehwhei
-CSCI	2400	306 B 29082 Computer Systems REC ECCS 112C 24 0 4:50 PM 4:00 PM - M Han,Richard Yehwhei
-CSCI	2400	307 B 29087 Computer Systems REC ECCS 112C 24 0 8:50 AM 8:00 AM - W Han,Richard Yehwhei
-CSCI	2400	308 B 29161 Computer Systems REC ECCS 112C 24 0 9:50 AM 9:00 AM - W Han,Richard Yehwhei
-CSCI	2400	309 B 34598 Computer Systems REC ECCS 112C 24 0 11:50 AM 11:00 AM - W Han,Richard Yehwhei
-CSCI	2400	310 B 34599 Computer Systems REC ECCS 112C 24 0 12:50 PM 12:00 PM - W Han,Richard Yehwhei
-CSCI	2400	311 B 39999 Computer Systems REC ECCS 112C 24 0 9:50 AM 9:00 AM - F Han,Richard Yehwhei
-CSCI	2820	001 B 28891 Linear Algebra with CS Apps LEC FLMG 157 85 3 6:15 PM 5:00 PM - TTH Ketelsen,Christian Willy
-CSCI	2824	001 B 26718 Discrete Structures LEC VAC 1B20 130 3 1:45 PM 12:30 PM - TTH Eisenberg,Michael A
-CSCI	2824	002 B 39528 Discrete Structures LEC MUEN E0046 116 3 1:45 PM 12:30 PM - TTH Fleming,Ioana Nicolaes
-CSCI	3002	001 B 29021 HCC Foundations/UCDD 1 LEC ITLL 1B50 65 3 12:15 PM 11:00 AM - TTH Kane,Shaun Kevin
-CSCI	3104	100 B 26843 Algorithms LEC FLMG 155 168 4 11:50 AM 11:00 AM - MWF Lv,Qin
-CSCI	3104	101 B 35202 Algorithms REC ECCR 108 28 4 8:50 AM 8:00 AM - F Lv,Qin
-CSCI	3104	102 B 28026 Algorithms REC KOBL 230 28 4 9:50 AM 9:00 AM - F Lv,Qin
-CSCI	3104	103 B 28701 Algorithms REC STAD 112 28 4 12:50 PM 12:00 PM - F Lv,Qin
-CSCI	3104	104 B 28957 Algorithms REC ECCR 139 28 4 1:50 PM 1:00 PM - F Lv,Qin
-CSCI	3104	105 B 28958 Algorithms REC KOBL 302 28 4 2:50 PM 2:00 PM - F Lv,Qin
-CSCI	3104	106 B 34506 Algorithms REC ECCR 108 28 4 3:50 PM 3:00 PM - F Lv,Qin
-CSCI	3112	801 B 28765 Human-Centered Comp Prof Dev PRA 65 1-3 12:50 AM - TBA Lewis,Clayton
-CSCI	3155	100 B 28585 Princip of Prog Langs LEC ECCR 245 105 4 1:45 PM 12:30 PM - TTH Chang,Bor Yuh Evan
-CSCI	3155	101 B 28586 Princip of Prog Langs REC ECCR 110 21 4 8:50 AM 8:00 AM - W Chang,Bor Yuh Evan
-CSCI	3155	102 B 28587 Princip of Prog Langs REC STAD 112 21 4 12:50 PM 12:00 PM - W Chang,Bor Yuh Evan
-CSCI	3155	103 B 28588 Princip of Prog Langs REC ECCR 139 21 4 1:50 PM 1:00 PM - W Chang,Bor Yuh Evan
-CSCI	3155	104 B 28859 Princip of Prog Langs REC ECCR 110 21 4 4:50 PM 4:00 PM - W Chang,Bor Yuh Evan
-CSCI	3155	105 B 34660 Princip of Prog Langs REC ECCR 110 21 4 3:50 PM 3:00 PM - W Chang,Bor Yuh Evan
-CSCI	3202	001 B 28582 Intro Artificial Intell LEC EKLC E1B20 100 3 4:50 PM 4:00 PM - MWF Hoenigman,Rhonda Ol
-CSCI	3287	001 B 28696 Databases Info Systems LEC ECCS 1B12 68 3 2:50 PM 2:00 PM - MWF Osborne,Richard
-CSCI	3302	010 B 28797 Introduction to Robotics LEC ECCR 151 42 3 6:15 PM 5:00 PM - M Correll,Nikolaus
-CSCI	3302	011 B 28825 Introduction to Robotics LAB SEE DEPT 42 3 2:00 PM 12:00 PM - F Correll,Nikolaus
-CSCI	3308	010 B 26844 Software Dev Methods and Tools LEC ECCR 265 144 3 3:50 PM 3:00 PM - MF Boese,Elizabeth Sugar
-CSCI	3308	101 B 26845 Software Dev Methods and Tools LAB ECCS 112C 24 3 6:50 PM 5:00 PM - M Boese,Elizabeth Sugar
-CSCI	3308	102 B 26846 Software Dev Methods and Tools LAB ECCS 112C 24 3 8:20 PM 6:30 PM - T Boese,Elizabeth Sugar
-CSCI	3308	103 B 26847 Software Dev Methods and Tools LAB ECCS 112C 24 3 2:50 PM 1:00 PM - W Boese,Elizabeth Sugar
-CSCI	3308	104 B 26848 Software Dev Methods and Tools LAB ECCS 112C 24 3 4:50 PM 3:00 PM - W Boese,Elizabeth Sugar
-CSCI	3308	105 B 28795 Software Dev Methods and Tools LAB ECCS 112C 24 3 6:50 PM 5:00 PM - W Boese,Elizabeth Sugar
-CSCI	3308	106 B 34600 Software Dev Methods and Tools LAB ECCS 112C 24 3 11:50 AM 10:00 AM - F Boese,Elizabeth Sugar
-CSCI	3434	001 B 37761 Theory of Computation LEC ECCR 265 40 3 6:15 PM 5:00 PM - TTH Sankaranarayanan,Srir
-CSCI	3702	001 B 27633 Cognitive Science LEC FLMG 156 15 3 3:15 PM 2:00 PM - TTH Rupert,Robert D
-CSCI	3753	100 B 28999 Operating Systems LEC ECCR 200 100 4 10:50 AM 10:00 AM - MWF Miller,Frank W
-CSCI	3753	101 B 29000 Operating Systems REC STAD 112 25 4 12:50 PM 12:00 PM - M Miller,Frank W
-CSCI	3753	102 B 29001 Operating Systems REC ECCR 139 25 4 1:50 PM 1:00 PM - M Miller,Frank W
-CSCI	3753	103 B 29002 Operating Systems REC ECCR 110 25 4 4:50 PM 4:00 PM - M Miller,Frank W
-CSCI	3753	104 B 34661 Operating Systems REC ECCR 110 25 4 3:50 PM 3:00 PM - M Miller,Frank W
-CSCI	4229	001 B 26849 Computer Graphics LEC ECCS 1B12 65 3 7:30 PM 5:00 PM - TH Schreuder,Willem Adria
-CSCI	4273	001 B 26851 Network Systems LEC ECCS 1B12 52 3 12:15 PM 11:00 AM - TTH Ha,Sangtae
-CSCI	4308	010 B 26853 Software Engineering Project 1 LEC GOLD A120 85 4 6:45 PM 5:30 PM - MW Stafford,Judith Alyce
-CSCI	4308	011 B 28956 Software Engineering Project 1 REC GOLD A120 85 4 6:45 PM 5:30 PM - T Stafford,Judith Alyce
-CSCI	4328	800 B 28986 Software Prjct Mgmt/Mentoring LEC SEE DEPT 15 4 6:45 PM 5:30 PM - MW Stafford,Judith Alyce
-CSCI	4328	801 B 28987 Software Prjct Mgmt/Mentoring REC SEE DEPT 15 4 - TBA Stafford,Judith Alyce
-CSCI	4338	800 B 29136 Software Project Management LEC SEE DEPT 5 2 6:45 PM 5:30 PM - MW Stafford,Judith Alyce
-CSCI	4348	800 B 38175 Entrepreneurial Projects LEC ECCR 105 28 4 3:15 PM 2:00 PM - TTH Han,Richard Yehwhei
-CSCI	4348	801 B 38176 Entrepreneurial Projects REC KOBL 102 28 4 12:50 PM 12:00 PM - F Han,Richard Yehwhei
-CSCI	4448	001 B 34601 Object-Oriented Anlysis/Design LEC ECCS 1B12 54 3 10:50 AM 10:00 AM - MWF Boese,Elizabeth Sugar
-CSCI	4576	010 B 28576 High-Performance Sci Computing LEC FLMG 104 23 4 10:45 AM 9:30 AM - TTH Tufo,Henry
-CSCI	4576	011 B 28578 High-Performance Sci Computing LAB STAD 140 23 4 5:50 PM 4:00 PM - W Tufo,Henry
-CSCI	4809	001 B 28772 Computer Animation LEC ATLS 104 16 3 12:15 PM 11:00 AM - TTH King,Roger A
-CSCI	4830	001 B 28580 Spec Tpcs in Computer Science LEC ECCS 1B28 38 3 2:50 PM 2:00 PM - MWF Black,John
-CSCI	4830	005 B 35322 Spec Tpcs in Computer Science LEC ECCS 1B12 28 3 10:45 AM 9:30 AM - TTH Ying,Jordan Boyd-Grab
-CSCI	4830	006 B 38997 Spec Tpcs in Computer Science LEC DUAN G2B21 30 3 6:30 PM 4:00 PM - M Yeh,Pei Hsiu
-CSCI	4830	007 B 28875 Spec Tpcs in Computer Science LEC DUAN G2B47 22 3 10:45 AM 9:30 AM - TTH Black,John
-CSCI	4830	008 B 43115 Spec Tpcs in Computer Science LEC ECST 1B21 15 3 5:45 PM 4:30 PM - MW Kallen-Brown,Jedediah
-CSCI	4830	805 B 43128 Spec Tpcs in Computer Science LEC DUAN G1B27 20 1 9:30 AM 10:45 PM - T Fleming,Ioana Nicolaes
+CSCI	1000	001	B	26717	CS as Field of Wk & Stdy	LEC	ECCR	1B40	138	1	5:50 PM	5:00 PM	M	Black,John
+CSCI	1300	100	B	28544	CS 1: Starting Computing	LEC	MATH	100	235	4	1:50 PM	1:00 PM	MWF	Hoenigman,Rhonda Ol
+CSCI	1300	200 B	39582	CS 1: Starting Computing	LEC	DUAN	G1B20	215	4	8:50 AM	8:00 AM	MWF	Lewis,Clayton
+CSCI	1310	100 B	32833	Computer Sci 1: With Experienc	LEC	MUEN	E050	180	4	1:50 PM	1:00 PM	MWF	Boese,Elizabeth Sugar
+CSCI	1310	101 B	32834	Computer Sci 1: With Experienc	REC	ECCR	211	30	4	3:50 PM	3:00 PM	T Boese,Elizabeth Sugar
+CSCI	1310	102 B	32864	Computer Sci 1: With Experienc	REC	ECCR	211	30	4	4:50 PM	4:00 PM	T Boese,Elizabeth Sugar
+CSCI	1310	103 B	32881	Computer Sci 1: With Experienc	REC	ECCR	211	30	4	5:50 PM	5:00 PM	T Boese,Elizabeth Sugar
+CSCI	1310	105 B	32940	Computer Sci 1: With Experienc	REC	ECCR	211	30	4	10:50 AM	10:00 AM	W	Boese,Elizabeth Sugar
+CSCI	1310	108 B	32943	Computer Sci 1: With Experienc	REC	ECCR	211	30	4	10:50 AM	10:00 AM	TH	Boese,Elizabeth Sugar
+CSCI	1310	109 B	32944	Computer Sci 1: With Experienc	REC	ECCR	211	30	4	11:50 AM	11:00 AM	TH	Boese,Elizabeth Sugar
+CSCI	1320	100 B	32835	CS1: Engineering Applications	LEC	MUEN	E050	200	4	8:50 AM	8:00 AM	MWF	Fleming,Ioana Nicolaes
+CSCI	1320	200 B	39529	CS1: Engineering Applications	LEC	MUEN	E050	164	4	8:50 AM	8:00 AM	MWF	Fleming,Ioana Nicolaes
+CSCI	1320	301 B	32836	CS1: Engineering Applications	REC	ECES	107	28	0	11:50 AM	11:00 AM	T Fleming,Ioana Nicolaes
+CSCI	1320	302 B	32946	CS1: Engineering Applications	REC	ECES	107	28	0	12:50 PM	12:00 PM	T Fleming,Ioana Nicolaes
+CSCI	1320	303 B	32947	CS1: Engineering Applications	REC	ECES	107	28	0	3:50 PM	3:00 PM	W	Fleming,Ioana Nicolaes
+CSCI	1320	304 B	32948	CS1: Engineering Applications	REC	ECES	107	28	0	10:50 AM	10:00 AM	TH	Fleming,Ioana Nicolaes
+CSCI	1320	305 B	32949	CS1: Engineering Applications	REC	ECES	107	28	0	11:50 AM	11:00 AM	TH	Fleming,Ioana Nicolaes
+CSCI	1320	306 B	32950	CS1: Engineering Applications	REC	ECES	107	28	0	12:50 PM	12:00 PM	TH	Fleming,Ioana Nicolaes
+CSCI	1320	307 B	32951	CS1: Engineering Applications	REC	ECES	107	28	0	1:50 PM	1:00 PM	TH	Fleming,Ioana Nicolaes
+CSCI	1320	308 B	32952	CS1: Engineering Applications	REC	ECES	107	28	0	2:50 PM	2:00 PM	TH	Fleming,Ioana Nicolaes
+CSCI	1320	309 B	32953	CS1: Engineering Applications	REC	ECES	107	28	0	9:50 AM	9:00 AM	F	Fleming,Ioana Nicolaes
+CSCI	1320	310 B	32954	CS1: Engineering Applications	REC	ECES	107 28	0	10:50 AM	10:00 AM	F	Fleming,Ioana Nicolaes
+CSCI	1320	311 B	32955	CS1: Engineering Applications	REC	ECES	107	28	0	11:50 AM	11:00 AM	F	Fleming,Ioana Nicolaes
+CSCI	1320	312 B	32956	CS1: Engineering Applications	REC	ECES	107	28	0	12:50 PM	12:00 PM	F	Fleming,Ioana Nicolaes
+CSCI	1320	313 B	34659	CS1: Engineering Applications	REC	ECES	107	28	0	1:50 PM	1:00 PM	F	Fleming,Ioana Nicolaes
+CSCI	2270	100 B	28568	Comp Sci II: Data Struct	LEC	MATH	100	312	4	3:50 PM	3:00 PM	MWF	Osborne,Richard
+CSCI	2270	101 B	28569	Comp Sci II: Data Struct	REC	ECCS	112C	24	4	9:15 AM	8:00 AM	T Osborne,Richard
+CSCI	2270	102 B	28570	Comp Sci II: Data Struct	REC	ECCS	112C	24	4	10:45 AM	9:30 AM	T Osborne,Richard
+CSCI	2270	103 B	28571	Comp Sci II: Data Struct	REC	ECCS	112C	24	4	12:15 PM	11:00 AM	T Osborne,Richard
+CSCI	2270	104 B	28572	Comp Sci II: Data Struct	REC	ECCS	112C	24	4	1:45 PM	12:30 PM	T Osborne,Richard
+CSCI	2270	105 B	28573	Comp Sci II: Data Struct	REC	ECCS	112C	24	4	3:15 PM	2:00 PM	T Osborne,Richard
+CSCI	2270	106 B	28574	Comp Sci II: Data Struct	REC	ECCS	112C	24	4	4:45 PM	3:30 PM	T Osborne,Richard
+CSCI	2270	107 B	28789	Comp Sci II: Data Struct	REC	ECCS	112C	24	4	6:15 PM	5:00 PM	T Osborne,Richard
+CSCI	2270	109 B	28791	Comp Sci II: Data Struct	REC	ECCS	112C	24	4	10:45 AM	9:30 AM	TH	Osborne,Richard
+CSCI	2270	110 B	28792	Comp Sci II: Data Struct	REC	ECCS	112C	24	4	12:15 PM	11:00 AM	TH	Osborne,Richard
+CSCI	2270	111 B	28793	Comp Sci II: Data Struct	REC	ECCS	112C	24	4	1:45 PM	12:30 PM	TH	Osborne,Richard
+CSCI	2270	112 B	28794	Comp Sci II: Data Struct	REC	ECCS	112C	24	4	3:15 PM	2:00 PM	TH	Osborne,Richard
+CSCI	2270	113 B	34596	Comp Sci II: Data Struct	REC	ECCS	112C	24	4	4:45 PM	3:30 PM	TH	Osborne,Richard
+CSCI	2270	114 B	34597	Comp Sci II: Data Struct	REC	ECCS	112C	24	4	6:15 PM	5:00 PM	TH	Osborne,Richard
+CSCI	2400	100 B	26764	Computer Systems	LEC	GOLD	A2B70	132	4	10:50 AM	10:00 AM	MWF	Han,Richard Yehwhei
+CSCI	2400	200 B	39340	Computer Systems	LEC	ECCR	1B40	132	4	11:50 AM	11:00 AM	MWF	Mishra,Shivakant
+CSCI	2400	301 B	26765	Computer Systems	REC	ECCS	112C	24	0	11:50 AM	11:00 AM	M	Han,Richard Yehwhei
+CSCI	2400	302 B	26766	Computer Systems	REC	ECCS	112C	24	0	12:50 PM	12:00 PM	M	Han,Richard Yehwhei
+CSCI	2400	303 B	26809	Computer Systems	REC	ECCS	112C	24	0	1:50 PM	1:00 PM	M	Han,Richard Yehwhei
+CSCI	2400	304 B	26767	Computer Systems	REC	ECCS	112C	24	0	2:50 PM	2:00 PM	M	Han,Richard Yehwhei
+CSCI	2400	305 B	26768	Computer Systems	REC	ECCS	112C	24	0	3:50 PM	3:00 PM	M	Han,Richard Yehwhei
+CSCI	2400	306 B	29082	Computer Systems	REC	ECCS	112C	24	0	4:50 PM	4:00 PM	M	Han,Richard Yehwhei
+CSCI	2400	307 B	29087	Computer Systems	REC	ECCS	112C	24	0	8:50 AM	8:00 AM	W	Han,Richard Yehwhei
+CSCI	2400	308 B	29161	Computer Systems	REC	ECCS	112C	24	0	9:50 AM	9:00 AM	W	Han,Richard Yehwhei
+CSCI	2400	309 B	34598	Computer Systems	REC	ECCS	112C	24	0	11:50 AM	11:00 AM	W	Han,Richard Yehwhei
+CSCI	2400	310 B	34599	Computer Systems	REC	ECCS	112C	24	0	12:50 PM	12:00 PM	W	Han,Richard Yehwhei
+CSCI	2400	311 B	39999	Computer Systems	REC	ECCS	112C	24	0	9:50 AM	9:00 AM	F	Han,Richard Yehwhei
+CSCI	2820	001 B	28891	Linear Algebra with CS Apps	LEC	FLMG	157	85	3	6:15 PM	5:00 PM	TTH Ketelsen,Christian Willy
+CSCI	2824	001 B	26718	Discrete Structures	LEC	VAC	1B20	130	3	1:45 PM	12:30 PM	TTH Eisenberg,Michael A
+CSCI	2824	002 B	39528	Discrete Structures	LEC	MUEN	E0046	116	3	1:45 PM	12:30 PM	TTH Fleming,Ioana Nicolaes
+CSCI	3002	001 B	29021	HCC Foundations/UCDD 1	LEC	ITLL	1B50	65	3	12:15 PM	11:00 AM	TTH Kane,Shaun Kevin
+CSCI	3104	100 B	26843	Algorithms	LEC	FLMG	155	168	4	11:50 AM	11:00 AM	MWF	Lv,Qin
+CSCI	3104	101 B	35202	Algorithms	REC	ECCR	108	28	4	8:50 AM	8:00 AM	F	Lv,Qin
+CSCI	3104	102 B	28026	Algorithms	REC	KOBL	230	28	4	9:50 AM	9:00 AM	F	Lv,Qin
+CSCI	3104	103 B	28701	Algorithms	REC	STAD	112	28	4	12:50 PM	12:00 PM	F	Lv,Qin
+CSCI	3104	104 B	28957	Algorithms	REC	ECCR	139	28	4	1:50 PM	1:00 PM	F	Lv,Qin
+CSCI	3104	105 B	28958	Algorithms	REC	KOBL	302	28	4	2:50 PM	2:00 PM	F	Lv,Qin
+CSCI	3104	106 B	34506	Algorithms	REC	ECCR	108	28	4	3:50 PM	3:00 PM	F	Lv,Qin
+CSCI	3112	801 B	28765	Human-Centered Comp Prof Dev	PRA	65	1-3	12:50	AM	-	TBA Lewis,Clayton
+CSCI	3155	100 B	28585	Princip of Prog Langs	LEC	ECCR	245 105	4	1:45 PM	12:30 PM	TTH Chang,Bor Yuh Evan
+CSCI	3155	101 B	28586	Princip of Prog Langs	REC	ECCR	110 21	4	8:50 AM	8:00 AM	W	Chang,Bor Yuh Evan
+CSCI	3155	102 B	28587	Princip of Prog Langs	REC	STAD	112 21	4	12:50 PM	12:00 PM	W	Chang,Bor Yuh Evan
+CSCI	3155	103 B	28588	Princip of Prog Langs	REC	ECCR	139 21	4	1:50 PM	1:00 PM	W	Chang,Bor Yuh Evan
+CSCI	3155	104 B	28859	Princip of Prog Langs	REC	ECCR	110 21	4	4:50 PM	4:00 PM	W	Chang,Bor Yuh Evan
+CSCI	3155	105 B	34660	Princip of Prog Langs	REC	ECCR	110 21	4	3:50 PM	3:00 PM	W	Chang,Bor Yuh Evan
+CSCI	3202	001 B	28582	Intro Artificial Intell	LEC	EKLC E1B20 100	3	4:50 PM	4:00 PM	MWF	Hoenigman,Rhonda Ol
+CSCI	3287	001 B	28696	Databases Info Systems	LEC	ECCS	1B12 68	3	2:50 PM	2:00 PM	MWF	Osborne,Richard
+CSCI	3302	010 B	28797	Introduction to Robotics	LEC	ECCR	151 42	3	6:15 PM	5:00 PM	M	Correll,Nikolaus
+CSCI	3302	011 B	28825	Introduction to Robotics	LAB	SEE DEPT 42	3	2:00 PM	12:00 PM	F	Correll,Nikolaus
+CSCI	3308	010 B	26844	Software Dev Methods and Tools	LEC	ECCR	265 144	3	3:50 PM	3:00 PM	MF Boese,Elizabeth Sugar
+CSCI	3308	101 B	26845	Software Dev Methods and Tools	LAB	ECCS	112C 24	3	6:50 PM	5:00 PM	M	Boese,Elizabeth Sugar
+CSCI	3308	102 B	26846	Software Dev Methods and Tools	LAB	ECCS	112C 24	3	8:20 PM	6:30 PM	T Boese,Elizabeth Sugar
+CSCI	3308	103 B	26847	Software Dev Methods and Tools	LAB	ECCS	112C 24	3	2:50 PM	1:00 PM	W	Boese,Elizabeth Sugar
+CSCI	3308	104 B	26848	Software Dev Methods and Tools	LAB	ECCS	112C 24	3	4:50 PM	3:00 PM	W	Boese,Elizabeth Sugar
+CSCI	3308	105 B	28795	Software Dev Methods and Tools	LAB	ECCS	112C 24	3	6:50 PM	5:00 PM	W	Boese,Elizabeth Sugar
+CSCI	3308	106 B	34600	Software Dev Methods and Tools	LAB	ECCS	112C 24	3	11:50 AM	10:00 AM	F	Boese,Elizabeth Sugar
+CSCI	3434	001 B	37761	Theory of Computation	LEC	ECCR	265 40	3	6:15 PM	5:00 PM	TTH Sankaranarayanan,Srir
+CSCI	3702	001 B	27633	Cognitive Science	LEC	FLMG	156	15	3	3:15 PM	2:00 PM	TTH Rupert,Robert D
+CSCI	3753	100 B	28999	Operating Systems	LEC	ECCR	200 100	4	10:50 AM	10:00 AM	MWF	Miller,Frank W
+CSCI	3753	101 B	29000	Operating Systems	REC	STAD	112 25	4	12:50 PM	12:00 PM	M	Miller,Frank W
+CSCI	3753	102 B	29001	Operating Systems	REC	ECCR	139 25	4	1:50 PM	1:00 PM	M	Miller,Frank W
+CSCI	3753	103 B	29002	Operating Systems	REC	ECCR	110 25	4	4:50 PM	4:00 PM	M	Miller,Frank W
+CSCI	3753	104 B	34661	Operating Systems	REC	ECCR	110 25	4	3:50 PM	3:00 PM	M	Miller,Frank W
+CSCI	4229	001 B	26849	Computer Graphics	LEC	ECCS	1B12 65	3	7:30 PM	5:00 PM	TH	Schreuder,Willem Adria
+CSCI	4273	001 B	26851	Network Systems	LEC	ECCS	1B12 52	3	12:15 PM	11:00 AM	TTH Ha,Sangtae
+CSCI	4308	010 B	26853	Software Engineering Project 1	LEC	GOLD	A120 85	4	6:45 PM	5:30 PM	MW	Stafford,Judith Alyce
+CSCI	4308	011 B	28956	Software Engineering Project 1	REC	GOLD	A120 85	4	6:45 PM	5:30 PM	T Stafford,Judith Alyce
+CSCI	4328	800 B	28986	Software Prjct Mgmt/Mentoring	LEC	SEE DEPT 15	4	6:45 PM	5:30 PM	MW	Stafford,Judith Alyce
+CSCI	4328	801 B	28987	Software Prjct Mgmt/Mentoring	REC	SEE DEPT 15	4	- TBA Stafford,Judith Alyce
+CSCI	4338	800 B	29136	Software Project Management	LEC	SEE DEPT 5	2	6:45 PM	5:30 PM	MW	Stafford,Judith Alyce
+CSCI	4348	800 B	38175	Entrepreneurial Projects	LEC	ECCR	105	28	4	3:15 PM	2:00 PM	TTH Han,Richard Yehwhei
+CSCI	4348	801 B	38176	Entrepreneurial Projects	REC	KOBL	102	28	4	12:50 PM	12:00 PM	F	Han,Richard Yehwhei
+CSCI	4448	001 B	34601	Object-Oriented Anlysis/Design	LEC	ECCS	1B12 54	3	10:50 AM	10:00 AM	MWF	Boese,Elizabeth Sugar
+CSCI	4576	010 B	28576	High-Performance Sci Computing	LEC	FLMG	104 23	4	10:45 AM	9:30 AM	TTH Tufo,Henry
+CSCI	4576	011 B	28578	High-Performance Sci Computing	LAB	STAD	140 23	4	5:50 PM	4:00 PM	W	Tufo,Henry
+CSCI	4809	001 B	28772	Computer Animation	LEC	ATLS	104	16	3	12:15 PM	11:00 AM	TTH King,Roger A
+CSCI	4830	001 B	28580	Spec Tpcs in Computer Science	LEC	ECCS	1B28	38	3	2:50 PM	2:00 PM	MWF	Black,John
+CSCI	4830	005 B	35322	Spec Tpcs in Computer Science	LEC	ECCS	1B12	28	3	10:45 AM	9:30 AM	TTH Ying,Jordan Boyd-Grab
+CSCI	4830	006 B	38997	Spec Tpcs in Computer Science	LEC	DUAN	G2B21	30	3	6:30 PM	4:00 PM	M	Yeh,Pei Hsiu
+CSCI	4830	007 B	28875	Spec Tpcs in Computer Science	LEC	DUAN	G2B47	22	3	10:45 AM	9:30 AM	TTH Black,John
+CSCI	4830	008 B	43115	Spec Tpcs in Computer Science	LEC	ECST	1B21	15	3	5:45 PM	4:30 PM	MW	Kallen-Brown,Jedediah
+CSCI	4830	805 B	43128	Spec Tpcs in Computer Science	LEC	DUAN	G1B27	20	1	9:30 AM	10:45 PM	T Fleming,Ioana Nicolaes
