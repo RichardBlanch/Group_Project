@@ -1,21 +1,3 @@
-/* ===============================
-   Author: Brad Hussey
-   Date:   September 22, 2013
-   
-   Notes:
-   Hand coded for Build a Website
-   from Scratch with HTML & CSS
-   
-   Colour Palette:
-   ---------------
-   Light Cream:		#f2f3ee
-   Orange:			#d17f38
-   Yellow:			#e8c04f
-   Brown:			#4b2707
-   =============================== */
-
-/* General */
-
 body {
 	background: #f2f3ee url('../images/bg-tile.gif') top left repeat;
 	color: #4b2707;
@@ -147,9 +129,9 @@ header nav ul li#logo a:hover {
 }
 
 #hero .large-ribbon {
-	height: 190px;
-	width: 150px;
-	background: url('../images/fresh-whole-ingredients.png') top left no-repeat;
+	height: 500px;
+	width: 175px;
+	background: url('../images/pen-and-paper.jpg') top left no-repeat;
 	text-indent: -9999px;
 	position: absolute;
 	top: -23px;
