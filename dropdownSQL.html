@@ -1,0 +1,18 @@
+<tr>
+<td>Owner</td>
+<td>
+<select name="owner">
+<?php 
+$sql = mysql_query("SELECT DEPT FROM csciClasses");
+while ($row = mysql_fetch_array($sql)){
+echo "<option value=\"owner1\">" . $row['DEPT'] . "</option>";
+}
+?>
+</select>
+<option value="owner1"><?php echo $row['DEPT']; ?></option>
+
+<?php
+}
+?>
+</td>
+</tr>
