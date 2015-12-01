@@ -5,12 +5,14 @@
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "779820EB780ADE68042DC5AD2DEA804A04403893" : 0,
-    "8E9694F087F70D8D068B66654B1CC8608B5F6B2D" : 0
+    "8E9694F087F70D8D068B66654B1CC8608B5F6B2D" : 0,
+    "CA313EB77AE7EA9CCE828D4316C3B97D38298518" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "829E6B90-23CC-4FB8-BC80-256F001B3002",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "779820EB780ADE68042DC5AD2DEA804A04403893" : "Study_Finder\/",
-    "8E9694F087F70D8D068B66654B1CC8608B5F6B2D" : "SlackTextViewController\/"
+    "8E9694F087F70D8D068B66654B1CC8608B5F6B2D" : "SlackTextViewController\/",
+    "CA313EB77AE7EA9CCE828D4316C3B97D38298518" : ""
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "Study_Finder",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -25,6 +27,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/slackhq\/SlackTextViewController.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8E9694F087F70D8D068B66654B1CC8608B5F6B2D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/RichardBlanch\/StudyFinder.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CA313EB77AE7EA9CCE828D4316C3B97D38298518"
     }
   ]
 }
